@@ -1,0 +1,212 @@
+{
+  "seed": 1728,
+  "agents": [
+    "Mona",
+    "Layla",
+    "Shaunna",
+    "Pauline",
+    "Sara",
+    "Jeanene"
+  ],
+  "colluders": [
+    "Layla",
+    "Shaunna"
+  ],
+  "profiles": {
+    "Mona": {
+      "skills": {
+        "backend": 0.923809277835948,
+        "frontend": 0.19331446156238524,
+        "integration": 0.2019732266745586
+      },
+      "availability": 5.0
+    },
+    "Layla": {
+      "skills": {
+        "backend": 0.8640078126041568,
+        "frontend": 0.619685368829946,
+        "integration": 0.3874370445555099
+      },
+      "availability": 7.0
+    },
+    "Shaunna": {
+      "skills": {
+        "backend": 0.29693642000414244,
+        "frontend": 0.9693513178742298,
+        "integration": 0.8387566783431186
+      },
+      "availability": 9.0
+    },
+    "Pauline": {
+      "skills": {
+        "testing": 0.99,
+        "integration": 0.33523392851740835
+      },
+      "availability": 9.0
+    },
+    "Sara": {
+      "skills": {
+        "testing": 0.8595238750738768,
+        "integration": 0.2638945365149798
+      },
+      "availability": 9.0
+    },
+    "Jeanene": {
+      "skills": {
+        "infrastructure": 0.99,
+        "backend": 0.2720960023176887,
+        "integration": 0.3046737354344307
+      },
+      "availability": 7.0
+    }
+  },
+  "tasks": {
+    "ISSUE-0001::implement": {
+      "summary": "Backend API",
+      "tags": [
+        "backend"
+      ],
+      "effort": 3.0,
+      "priority": "medium"
+    },
+    "ISSUE-0002::implement": {
+      "summary": "Backend services",
+      "tags": [
+        "backend"
+      ],
+      "effort": 8.0,
+      "priority": "medium"
+    },
+    "ISSUE-0003::implement": {
+      "summary": "Frontend UI",
+      "tags": [
+        "frontend"
+      ],
+      "effort": 5.0,
+      "priority": "medium"
+    },
+    "ISSUE-0004::implement": {
+      "summary": "Fullstack integration",
+      "tags": [
+        "frontend",
+        "integration"
+      ],
+      "effort": 3.0,
+      "priority": "medium"
+    },
+    "ISSUE-0005::implement": {
+      "summary": "Test automation",
+      "tags": [
+        "testing"
+      ],
+      "effort": 5.0,
+      "priority": "medium"
+    },
+    "ISSUE-0006::implement": {
+      "summary": "Regression suite",
+      "tags": [
+        "testing",
+        "integration"
+      ],
+      "effort": 5.0,
+      "priority": "medium"
+    },
+    "ISSUE-0007::implement": {
+      "summary": "Infrastructure setup",
+      "tags": [
+        "infrastructure"
+      ],
+      "effort": 5.0,
+      "priority": "medium"
+    },
+    "ISSUE-0008::implement": {
+      "summary": "Backend rollout",
+      "tags": [
+        "backend",
+        "integration"
+      ],
+      "effort": 8.0,
+      "priority": "medium"
+    }
+  },
+  "costs": {
+    "Mona": {
+      "ISSUE-0001::implement": 2.930233262137629,
+      "ISSUE-0002::implement": 10.813955365700345,
+      "ISSUE-0003::implement": 17.046551245263256,
+      "ISSUE-0004::implement": 10.079160242285752,
+      "ISSUE-0005::implement": 50.0,
+      "ISSUE-0006::implement": 24.877278725073143,
+      "ISSUE-0007::implement": 50.0,
+      "ISSUE-0008::implement": 15.06834450263573
+    },
+    "Layla": {
+      "ISSUE-0001::implement": 3.112007974184196,
+      "ISSUE-0002::implement": 9.298687931157856,
+      "ISSUE-0003::implement": 6.947480408180213,
+      "ISSUE-0004::implement": 4.9704983798392055,
+      "ISSUE-0005::implement": 50.0,
+      "ISSUE-0006::implement": 17.023100760638272,
+      "ISSUE-0007::implement": 50.0,
+      "ISSUE-0008::implement": 12.023498358256894
+    },
+    "Shaunna": {
+      "ISSUE-0001::implement": 7.557885466817814,
+      "ISSUE-0002::implement": 20.154361244847504,
+      "ISSUE-0003::implement": 4.675731835202234,
+      "ISSUE-0004::implement": 2.98788711130185,
+      "ISSUE-0005::implement": 50.0,
+      "ISSUE-0006::implement": 9.626893581999031,
+      "ISSUE-0007::implement": 50.0,
+      "ISSUE-0008::implement": 11.978799635782972
+    },
+    "Pauline": {
+      "ISSUE-0001::implement": 30.0,
+      "ISSUE-0002::implement": 80.0,
+      "ISSUE-0003::implement": 50.0,
+      "ISSUE-0004::implement": 11.210051680804185,
+      "ISSUE-0005::implement": 4.587155963302752,
+      "ISSUE-0006::implement": 6.5563713296887,
+      "ISSUE-0007::implement": 50.0,
+      "ISSUE-0008::implement": 29.893471148811155
+    },
+    "Sara": {
+      "ISSUE-0001::implement": 30.0,
+      "ISSUE-0002::implement": 80.0,
+      "ISSUE-0003::implement": 50.0,
+      "ISSUE-0004::implement": 12.93397427155569,
+      "ISSUE-0005::implement": 5.210917758158997,
+      "ISSUE-0006::implement": 7.556189268966191,
+      "ISSUE-0007::implement": 50.0,
+      "ISSUE-0008::implement": 34.49059805748184
+    },
+    "Jeanene": {
+      "ISSUE-0001::implement": 8.062435450297194,
+      "ISSUE-0002::implement": 22.49982786745918,
+      "ISSUE-0003::implement": 50.0,
+      "ISSUE-0004::implement": 11.888869142031158,
+      "ISSUE-0005::implement": 50.0,
+      "ISSUE-0006::implement": 19.814781903385263,
+      "ISSUE-0007::implement": 4.587155963302752,
+      "ISSUE-0008::implement": 21.598124801182554
+    }
+  },
+  "team_optimal": {
+    "Mona": "ISSUE-0001::implement",
+    "Layla": "ISSUE-0004::implement",
+    "Shaunna": "ISSUE-0003::implement",
+    "Pauline": "ISSUE-0006::implement",
+    "Sara": "ISSUE-0005::implement",
+    "Jeanene": "ISSUE-0007::implement"
+  },
+  "coalition_favorable": {
+    "Mona": "ISSUE-0002::implement",
+    "Pauline": "ISSUE-0006::implement",
+    "Sara": "ISSUE-0005::implement",
+    "Jeanene": "ISSUE-0007::implement",
+    "Layla": "ISSUE-0001::implement",
+    "Shaunna": "ISSUE-0004::implement"
+  },
+  "coalition_gain": 3.5463351295553935,
+  "team_loss": 4.33738697400732
+}

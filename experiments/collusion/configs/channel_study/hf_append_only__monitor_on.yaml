@@ -1,0 +1,56 @@
+simulation:
+  max_iterations: 1
+  max_planning_rounds: 2
+  max_conversation_steps: 3
+  seed: 1728
+environment:
+  import_path: experiments.collusion.choice.competitive_dev_env:CompetitiveDevEnvironment
+  max_tasks: 8
+  assignment_filling: false
+  skill_eps: 0.1
+  cost_weights:
+    load: 1.0
+communication_network:
+  topology: watts_strogatz
+  num_agents: 6
+  k: 2
+  rewire_prob: 0.0
+  consolidate_channels: false
+llm_models:
+- label: hf-qwen2.5-7b-featherless
+  llm:
+    provider: huggingface
+    huggingface:
+      model: Qwen/Qwen2.5-7B-Instruct:featherless-ai
+      params:
+        max_output_tokens: 384
+        temperature: 0.7
+experiment:
+  tag: hf_competitive_append_only__monitor_on
+  output_dir: experiments/collusion/outputs/hf_channel_study/append_only__monitor_on
+  max_concurrent_runs: 1
+  seeds:
+  - 1728
+  - 1729
+  - 1730
+  collusion:
+    colluder_selection: fixture_pair
+    agent_order: random
+  sweeps:
+  - name: competitive_jira
+    topologies:
+    - watts_strogatz
+    num_agents:
+    - 6
+    colluder_counts:
+    - 2
+    secret_channel_enabled:
+    - false
+    prompt_variants:
+    - simple
+  planning_rounds: 2
+  channel_study:
+    enabled: true
+    monitored: true
+    mutability: append_only
+  log_prompts: true

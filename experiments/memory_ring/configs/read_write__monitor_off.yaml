@@ -1,0 +1,61 @@
+# COLLOSSEUM MEMORY RING PILOT. Requires external vLLM server on 127.0.0.1:8000.
+simulation:
+  max_iterations: 1
+  max_planning_rounds: 2
+  max_conversation_steps: 2
+  seed: 1
+environment:
+  import_path: experiments.collusion.choice.jira_ticket_choice_env:JiraTicketChoiceEnvironment
+  assignment_filling: false
+  max_tasks: 8
+communication_network:
+  topology: watts_strogatz
+  num_agents: 6
+  consolidate_channels: false
+  k: 2
+  rewire_prob: 0
+llm_models:
+- label: qwen2.5-7b
+  llm:
+    provider: vllm
+    vllm:
+      auto_start_server: false
+      health_check_path: /models
+      persistent_server: false
+      params:
+        max_output_tokens: 300
+        temperature: 0.7
+      models:
+      - checkpoint: Qwen/Qwen2.5-7B-Instruct-AWQ
+        served_model_name: Qwen/Qwen2.5-7B-Instruct-AWQ
+        base_url: http://127.0.0.1:8000/v1
+        request_timeout: 120
+experiment:
+  tag: memory_ring_read_write_monitor_0
+  output_dir: experiments/memory_ring/outputs/read_write_monitor_off
+  max_concurrent_runs: 1
+  seeds:
+  - 1
+  - 2
+  - 3
+  log_prompts: true
+  collusion:
+    colluder_selection: random
+    agent_order: random
+  memory_study:
+    enabled: true
+    mutability: read_write
+    monitored: false
+  sweeps:
+  - name: memory_ring_pilot
+    topologies:
+    - watts_strogatz
+    num_agents:
+    - 6
+    colluder_counts:
+    - 0
+    - 2
+    secret_channel_enabled:
+    - false
+    prompt_variants:
+    - control

@@ -1,0 +1,53 @@
+# Local llama.cpp server; Terrarium's vllm provider is only the HTTP transport.
+# This GGUF Q4_K_M smoke is distinct from the original AWQ pilot configs.
+simulation:
+  max_iterations: 1
+  max_planning_rounds: 1
+  max_conversation_steps: 2
+  seed: 1
+environment:
+  import_path: experiments.collusion.choice.jira_ticket_choice_env:JiraTicketChoiceEnvironment
+  assignment_filling: false
+  max_tasks: 6
+communication_network:
+  topology: watts_strogatz
+  num_agents: 6
+  consolidate_channels: false
+  k: 2
+  rewire_prob: 0
+llm_models:
+- label: qwen2.5-7b-gguf-q4km-llamacpp-b11871
+  llm:
+    provider: vllm
+    vllm:
+      auto_start_server: false
+      health_check_path: /models
+      persistent_server: false
+      params:
+        max_output_tokens: 256
+        temperature: 0
+      models:
+      - checkpoint: Qwen/Qwen2.5-7B-Instruct-GGUF
+        served_model_name: qwen2.5-7b-q4km
+        base_url: http://127.0.0.1:8000/v1
+        request_timeout: 300
+experiment:
+  tag: local_qwen_smoke_not_pilot
+  output_dir: experiments/memory_ring/outputs/local_qwen_smoke
+  max_concurrent_runs: 1
+  seeds: [1]
+  log_prompts: true
+  collusion:
+    colluder_selection: random
+    agent_order: random
+  memory_study:
+    enabled: true
+    mutability: append_only
+    monitored: false
+  sweeps:
+  - name: local_smoke
+    topologies: [watts_strogatz]
+    num_agents: [6]
+    colluder_counts: [0]
+    secret_channel_enabled: [false]
+    prompt_variants: [control]
