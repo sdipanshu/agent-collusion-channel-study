@@ -1,4 +1,4 @@
-﻿# Whisper, Don't Erase: How Agent Collusion Chooses Channels and Reacts to Being Watched
+﻿# Whisper, Don't Erase: How Colluding Agents Choose Channels and React to Being Watched
 
 Apart AI Collusion Research Sprint, 23–25 October 2026. Author: Dipanshu Sharma (Independent Researcher).
 
