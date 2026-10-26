@@ -1,6 +1,6 @@
-﻿# Whisper, Don't Erase â€” channel preference under monitoring
+﻿# Agent Collusion — channel preference under monitoring
 
-Apart AI Collusion Research Sprint, 23â€“25 October 2026. Author: Dipanshu Sharma (Independent Researcher).
+Apart AI Collusion Research Sprint, 23–25 October 2026. Author: Dipanshu Sharma (Independent Researcher).
 
 Report: `APART_REPORT.md` (Figure 1: `figure1_whisper_not_erase.png`). Protocol: `V3_PROTOCOL.md`.
 
