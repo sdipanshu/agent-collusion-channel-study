@@ -1,4 +1,6 @@
-﻿# Whisper, Don't Erase: How LLM Coalitions Choose Channels, and React to Being Watched
+﻿# Agent Collusion
+
+*Whisper, don't erase: how LLM coalitions choose channels and react to being watched*
 
 **Author:** Dipanshu Sharma — Independent Researcher
 **Apart AI Collusion Research Sprint, 23–25 October 2026.** Tracks: 3.4 (coalitions that learn they are watched), 3.1 (collusion carriers), 2.3 (evidence of collusion).
