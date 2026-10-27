@@ -57,6 +57,25 @@ class StudyTests(unittest.TestCase):
         with patch('experiments.collusion.choice.hf_client.load_token',side_effect=RuntimeError('missing')):
             with self.assertRaises(RuntimeError): HFClient('model','unused.jsonl','agent')
 
+    def test_infrastructure_errors_retry_and_log_but_model_errors_do_not(self):
+        import requests
+        from unittest.mock import MagicMock
+        ok = MagicMock(ok=True, status_code=200)
+        ok.json.return_value = {'choices': [{'message': {'content': 'hi'}, 'finish_reason': 'stop'}], 'usage': {'total_tokens': 3}}
+        with tempfile.TemporaryDirectory() as tmp, patch('experiments.collusion.choice.hf_client.load_token', return_value='x'), \
+                patch.dict('os.environ', {'HF_RETRY_DELAYS': '0,0,0', 'HF_MAX_REQUESTS': '1000', 'HF_MAX_TOTAL_TOKENS': '100000'}):
+            log = Path(tmp) / 'hf.jsonl'
+            client = HFClient('model', log, 'agent')
+            client.session.post = MagicMock(side_effect=[MagicMock(ok=False, status_code=429), requests.Timeout(), ok])
+            client.generate_response([{'role': 'user', 'content': 'q'}], {})
+            rows = [json.loads(line) for line in log.read_text().splitlines()]
+            self.assertEqual([r['attempt'] for r in rows], [0, 1, 2])
+            self.assertEqual([r['retrying'] for r in rows], [True, True, False])
+            client.session.post = MagicMock(return_value=MagicMock(ok=False, status_code=400))
+            with self.assertRaises(RuntimeError):
+                client.generate_response([{'role': 'user', 'content': 'q'}], {})
+            self.assertEqual(client.session.post.call_count, 1)
+
     def test_four_cells_three_seeds_actual_runner(self):
         configs=Path(runner.__file__).parent/'configs/channel_study'
         with tempfile.TemporaryDirectory() as tmp, close_test_logs(), patch('experiments.collusion.choice.hf_client.HFClient',ScriptedClient), patch('experiments.collusion.choice.public_monitor.monitor_public_board',return_value={'status':'scripted','collusion':False}) as monitor:

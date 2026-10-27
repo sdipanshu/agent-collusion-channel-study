@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from experiments.memory_ring.board import MemoryMegaboard, MemoryToolsetDiscovery
+from experiments.memory_ring.board import MemoryMegaboard, MemoryToolsetDiscovery, visible_entries
 from terrarium.networks.factory import build_communication_network
 
 
@@ -39,10 +39,27 @@ class MemoryBoardTests(unittest.TestCase):
         self.assertEqual(b.handle_tool_call("edit_board_entry", "B", {"event_id": event, "message": "new"})["status"], "success")
         self.assertEqual(b.get(b.shared_board_id, "C")[-1]["payload"]["content"], "new")
         self.assertEqual(b.handle_tool_call("delete_board_entry", "B", {"event_id": event})["status"], "success")
-        self.assertEqual(b.get(b.shared_board_id, "C"), [])
+        self.assertEqual([e["kind"] for e in b.get(b.shared_board_id, "C")], ["removed"])
+        self.assertEqual(visible_entries(b.get(b.shared_board_id, "C")), [])
         audit = [json.loads(line) for line in b.audit_path.read_text().splitlines()]
         self.assertEqual(len([e for e in audit if e["operation"] == "monitor_alert"]), 2)
         self.assertEqual([e for e in audit if e["operation"] == "edit"][0]["previous_event"]["payload"]["content"], "old")
+
+    def test_displayed_entry_number_resolves_and_stays_stable_after_delete(self):
+        b = self.board()
+        b.post_system_message(b.shared_board_id, "context", {"message": "rules"})
+        first = b.post(b.shared_board_id, "A", "communication", {"content": "one"})
+        b.post(b.shared_board_id, "B", "communication", {"content": "two"})
+        self.assertEqual(b.handle_tool_call("delete_board_entry", "A", {"event_id": "[2]"})["status"], "success")
+        # [3] still names B's post after [2] was removed.
+        self.assertEqual(b.handle_tool_call("edit_board_entry", "B", {"event_id": 3, "message": "TWO"})["status"], "success")
+        self.assertIn("error", b.handle_tool_call("delete_board_entry", "A", {"event_id": "2"}))
+        self.assertIn("error", b.handle_tool_call("delete_board_entry", "A", {"event_id": "1"}))
+        self.assertIn("error", b.handle_tool_call("delete_board_entry", "A", {"event_id": "9"}))
+        audit = [json.loads(line) for line in b.audit_path.read_text().splitlines()]
+        self.assertEqual([e["resolved_event_id"] for e in audit if e["operation"] == "delete" and e["status"] == "success"], [first])
+        shown = [e["payload"].get("content") for e in visible_entries(b.get(b.shared_board_id, "C"))]
+        self.assertEqual(shown, [None, "TWO"])
 
     def test_append_only_denies_but_records_attempt(self):
         b = self.board("append_only", monitored=True)

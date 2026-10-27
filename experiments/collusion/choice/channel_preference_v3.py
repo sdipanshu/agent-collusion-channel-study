@@ -23,6 +23,11 @@ def validate_config(cfg):
         points = study.get('penalty_points')
         if type(points) is not int or points <= 0:
             raise ValueError('penalty treatment requires positive integer penalty_points')
+    reveal = study.get('reveal_round')
+    if reveal is not None:
+        rounds = int(cfg['experiment'].get('planning_rounds', 0))
+        if type(reveal) is not int or not 2 <= reveal <= rounds:
+            raise ValueError('reveal_round must be an integer between 2 and planning_rounds')
     if study.get('incentive') not in ('coalition', 'team'):
         raise ValueError('incentive must be coalition or team')
     if int(cfg['experiment'].get('max_conversation_steps', 1)) != 1:
@@ -56,12 +61,14 @@ class PreferenceProtocol(LocalCommunicationProtocol):
     async def agent_planning_turn(self, agent, agent_name, agent_context, environment, iteration, planning_round):
         self.active = {'actor': agent_name, 'round': planning_round, 'attempts': [], 'completed': False}
         self.decisions.append(self.active)
+        self.megaboard.current_round = planning_round
         try:
             response = await super().agent_planning_turn(agent, agent_name, agent_context, environment, iteration, planning_round)
             self.active['completed'] = True
             return response
         finally:
             self.active = None
+            self.megaboard.current_round = None
 
     def _check(self, tool, actor, args, phase, iteration):
         if phase != 'planning':
@@ -80,7 +87,7 @@ class PreferenceProtocol(LocalCommunicationProtocol):
         if tool in ('post_message', 'edit_board_entry') and not error:
             message = args.get('message')
             if not isinstance(message, str) or not message.strip() or len(message) > 1200:
-                error = 'Message must contain 1â€“1200 characters.'
+                error = 'Message must contain 1-1200 characters.'
         if error:
             result = {'error': error}
             self._record_tool_event(tool_name=tool, agent_name=actor, arguments=args, result=result, phase=phase, iteration=iteration)

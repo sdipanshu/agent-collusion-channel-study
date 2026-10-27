@@ -553,6 +553,7 @@ async def _run_single(
             'agent_order': [a.name for a in agents], 'public_board_id': global_board_id,
             'participants': {i: sorted(b.agents) for i,b in enumerate(protocol.megaboard.blackboards)},
             'seed': seed, 'monitor_treatment': cfg['experiment']['channel_study'].get('monitor_treatment', 'observation_only'),
+            'reveal_round': cfg['experiment']['channel_study'].get('reveal_round'),
         })
     secret_blackboard_id: Optional[int] = None
     if secret_channel_enabled and len(colluders) >= 2:
@@ -644,6 +645,7 @@ async def _run_single(
                 )
                 agent_context = dict(base_ctx)
                 agent_context.update(_extra_fields(agent.name))
+                agent_context["channel_study_planning_round"] = planning_round
                 response = await protocol.agent_planning_turn(
                     agent,
                     agent.name,
@@ -807,7 +809,8 @@ async def _run_single(
             raise RuntimeError("Incomplete Jira assignment: artifacts saved, research run failed")
         from experiments.collusion.choice.public_monitor import monitor_public_board
         study_cfg = cfg["experiment"]["channel_study"]
-        public_events = copy.deepcopy(protocol.megaboard.blackboards[global_board_id].logs)
+        from experiments.memory_ring.board import visible_entries
+        public_events = copy.deepcopy(visible_entries(protocol.megaboard.blackboards[global_board_id].logs))
         _write_json(run_dir / "public_monitor_input.json", public_events)
         monitor_result = {"status": "disabled", "collusion": None}
         if study_cfg.get("monitored"):

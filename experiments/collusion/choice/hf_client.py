@@ -1,9 +1,14 @@
-"""HF-hosted chat transport. No local inference and no provider fallback."""
+"""HF-hosted chat transport. No local inference and no provider fallback.
+
+Infrastructure failures (429, 5xx, timeouts, dropped connections) are retried with
+backoff and every attempt is logged; model outputs are never retried.
+"""
 import json
 import os
 import time
 from pathlib import Path
 
+import requests
 from dotenv import dotenv_values
 from terrarium.llm.clients.vllm_client import VLLMClient, _convert_tools
 
@@ -20,6 +25,10 @@ def load_token():
     if not token:
         raise RuntimeError("HF_TOKEN is required even for included credits; no inference was started")
     return token
+
+
+RETRY_STATUS = {429, 500, 502, 503, 504}
+RETRY_DELAYS = (5, 20, 60)
 
 
 class HFClient(VLLMClient):
@@ -44,23 +53,39 @@ class HFClient(VLLMClient):
         if params.get("tools"):
             payload["tools"] = _convert_tools(params["tools"])
         HFClient.requests_made += 1
-        start = time.monotonic()
-        response = self.session.post(self.base_url + "/chat/completions",
-                                     headers=self._build_headers(), json=payload,
-                                     timeout=self.request_timeout)
-        # Never log headers or credentials; record failed calls without response bodies.
-        record = {"actor": self.actor, "model": self.model_name,
-                  "elapsed_seconds": time.monotonic()-start,
-                  "http_status": response.status_code, "request": payload}
-        if response.ok:
-            data = response.json()
-            record["response"] = data
-            HFClient.tokens_used += int((data.get("usage") or {}).get("total_tokens", 0))
-        self.log_path.parent.mkdir(parents=True, exist_ok=True)
-        with self.log_path.open("a", encoding="utf-8") as stream:
-            stream.write(json.dumps(record, ensure_ascii=False) + "\n")
+        delays = [float(d) for d in os.getenv("HF_RETRY_DELAYS", ",".join(map(str, RETRY_DELAYS))).split(",") if d]
+        for attempt in range(len(delays) + 1):
+            start = time.monotonic()
+            # Never log headers or credentials; record failed calls without response bodies.
+            record = {"actor": self.actor, "model": self.model_name, "attempt": attempt, "request": payload}
+            try:
+                response = self.session.post(self.base_url + "/chat/completions",
+                                             headers=self._build_headers(), json=payload,
+                                             timeout=self.request_timeout)
+                error = None
+            except (requests.Timeout, requests.ConnectionError) as exc:
+                response, error = None, type(exc).__name__
+            record.update(elapsed_seconds=time.monotonic()-start,
+                          http_status=response.status_code if response is not None else None)
+            retryable = error is not None or response.status_code in RETRY_STATUS
+            if error:
+                record["transport_error"] = error
+            if response is not None and response.ok:
+                data = response.json()
+                record["response"] = data
+                HFClient.tokens_used += int((data.get("usage") or {}).get("total_tokens", 0))
+            will_retry = retryable and attempt < len(delays)
+            record["retrying"] = will_retry
+            self.log_path.parent.mkdir(parents=True, exist_ok=True)
+            with self.log_path.open("a", encoding="utf-8") as stream:
+                stream.write(json.dumps(record, ensure_ascii=False) + "\n")
+            if not will_retry:
+                break
+            time.sleep(delays[attempt])
+        if error:
+            raise RuntimeError(f"HF inference {error} after {attempt + 1} attempts")
         if not response.ok:
-            raise RuntimeError(f"HF inference HTTP {response.status_code}; no retry/fallback. Check account access and credits.")
+            raise RuntimeError(f"HF inference HTTP {response.status_code} after {attempt + 1} attempts. Check account access and credits.")
         choices = data.get("choices") or []
         if not choices:
             raise RuntimeError("HF returned no choices")

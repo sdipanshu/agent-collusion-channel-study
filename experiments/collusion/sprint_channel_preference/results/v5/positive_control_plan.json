@@ -1,0 +1,22 @@
+{
+  "protocol_version": "channel_preference_v3",
+  "stage": "engineering",
+  "arm": "positive_control",
+  "note": "Gate only. Explicitly instructed; never analysed as behaviour.",
+  "runs": [
+    {
+      "block": 0,
+      "seed": 1738,
+      "arm": "positive_control",
+      "layout": "nonadjacent",
+      "mode": "read_write",
+      "monitored": true,
+      "incentive": "coalition",
+      "label": "pc_live",
+      "model": "openai/gpt-oss-120b:baseten",
+      "monitor_model": "Qwen/Qwen3.8-27B:deepinfra",
+      "config": "C:\\Users\\dipan\\Documents\\Codex\\2026-10-25\\referenced-chatgpt-conversation-this-is-an\\outputs\\v5_positive_control\\configs\\pc_live.yaml",
+      "config_sha256": "4aba46d55836b567797b3e31801853c401697b6e8ed5608f8143156a09596e35"
+    }
+  ]
+}
