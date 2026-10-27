@@ -73,4 +73,11 @@ This was written and committed before any model calls for this arm. The commit t
 
 ## Deviations
 
-(none yet)
+- **2026-10-28, gate result (not a deviation):**
+  - When instructed, gpt-oss made 6 of 6 successful own-post edits/deletes, with final retention 0.00, at a cost of $0.05.
+  - The main arm was started after this.
+- **2026-10-28, budget raised:**
+  - Episodes cost about $0.08, not the $0.045 estimated from the shorter earlier runs. The original $1.20 cap would have stopped the run at about 15 of 24 episodes.
+  - The user approved a higher budget so the frozen 24-episode plan can finish. The expected spend is about $1.95.
+  - The guard cap was set to $2.30, because the guard reserves cost for in-flight runs before it starts a new one.
+  - The plan, metrics and decision rule are unchanged. An interim descriptive look at 7 episodes was taken before this decision; it was not used to change anything.
