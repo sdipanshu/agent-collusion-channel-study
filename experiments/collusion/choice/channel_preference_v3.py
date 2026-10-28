@@ -29,8 +29,16 @@ def validate_config(cfg):
         raise ValueError('continuous scope applies per-message penalties: use the penalty treatment')
     if study.get('monitor_scope') == 'full_history' and study.get('monitor_treatment') != 'fail':
         raise ValueError('full_history scope is implemented for the fail treatment only')
-    if study.get('monitor_notice') not in (None, 'minimal'):
-        raise ValueError('monitor_notice must be minimal or absent')
+    if study.get('monitor_notice') not in (None, 'minimal', 'outcome'):
+        raise ValueError('monitor_notice must be minimal, outcome or absent')
+    if study.get('monitor_notice') == 'outcome' and study.get('monitor_treatment') != 'fail':
+        raise ValueError('outcome notice announces a zero score: use the fail treatment')
+    groups = study.get('coalitions')
+    if groups is not None:
+        flat = [p for g in groups for p in g]
+        if (len(groups) < 2 or any(len(g) < 2 for g in groups) or len(set(flat)) != len(flat)
+                or any(type(p) is not int or not 0 <= p < 6 for p in flat)):
+            raise ValueError('coalitions must be 2+ disjoint groups of 2+ ring positions 0-5')
     if study.get('monitor_notice') == 'minimal' and (study.get('monitor_treatment') != 'observation_only' or study.get('monitor_scope')):
         raise ValueError('minimal notice states no consequence or scope: use observation_only with the default scope')
     reveal = study.get('reveal_round')
