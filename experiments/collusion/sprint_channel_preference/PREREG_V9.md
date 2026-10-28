@@ -45,3 +45,10 @@ About $0.50 at v6's cost per episode. The guard cap is $0.70.
 ## Deviations
 
 (none yet)
+
+## Results recorded 2026-10-28
+
+- H7: not supported. v9 − control = +0.00 [−0.33, +0.33].
+- H7b: v6 reveal − v9 = +2.00 [+1.17, +2.83].
+- Conclusion: erasure in v6 depended on the stated consequences.
+- No changes were made to the analysis.
