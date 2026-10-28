@@ -37,7 +37,7 @@ class HFClient(VLLMClient):
 
     def __init__(self, model, log_path, actor):
         super().__init__("https://router.huggingface.co/v1", model,
-                         api_key=load_token(), request_timeout=120)
+                         api_key=load_token(), request_timeout=int(os.getenv("HF_REQUEST_TIMEOUT", "120")))
         self.log_path = Path(log_path)
         self.actor = actor
 

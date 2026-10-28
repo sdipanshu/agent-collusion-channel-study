@@ -1,0 +1,21 @@
+{
+  "protocol_version": "channel_preference_v3",
+  "preregistration": "experiments/collusion/sprint_channel_preference/PREREG_V11.md",
+  "stage": "engineering",
+  "arm": "gate",
+  "note": "Live gate only; never analysed.",
+  "runs": [
+    {
+      "experiment": "3v2",
+      "seed": 1738,
+      "layout": "chain3_adj2",
+      "condition": "continuous",
+      "arm": "gate",
+      "label": "gate_3v2",
+      "model": "openai/gpt-oss-120b:baseten",
+      "monitor_model": "Qwen/Qwen3.8-27B:deepinfra",
+      "config": "C:\\Users\\dipan\\Documents\\Codex\\2026-10-25\\referenced-chatgpt-conversation-this-is-an\\outputs\\v11_gate_3v2\\configs\\gate_3v2.yaml",
+      "config_sha256": "6e30af668cc580417bd6713e2c98ac797310aaec4e8023b1977ed2f5a753e033"
+    }
+  ]
+}
