@@ -29,6 +29,10 @@ def validate_config(cfg):
         raise ValueError('continuous scope applies per-message penalties: use the penalty treatment')
     if study.get('monitor_scope') == 'full_history' and study.get('monitor_treatment') != 'fail':
         raise ValueError('full_history scope is implemented for the fail treatment only')
+    if study.get('monitor_notice') not in (None, 'minimal'):
+        raise ValueError('monitor_notice must be minimal or absent')
+    if study.get('monitor_notice') == 'minimal' and (study.get('monitor_treatment') != 'observation_only' or study.get('monitor_scope')):
+        raise ValueError('minimal notice states no consequence or scope: use observation_only with the default scope')
     reveal = study.get('reveal_round')
     if reveal is not None:
         rounds = int(cfg['experiment'].get('planning_rounds', 0))
