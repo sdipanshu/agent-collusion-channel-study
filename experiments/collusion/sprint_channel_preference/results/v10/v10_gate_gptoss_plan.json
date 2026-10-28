@@ -1,0 +1,27 @@
+{
+  "protocol_version": "channel_preference_v3",
+  "stage": "pilot",
+  "arm": "late_reveal_confirm",
+  "preregistration": "experiments/collusion/sprint_channel_preference/PREREG_V10.md",
+  "order": "interleaved by seed; arm order randomised within seed",
+  "runs": [
+    {
+      "block": 0,
+      "seed": 1738,
+      "pair_index": 0,
+      "arm": "gate",
+      "layout": "nonadjacent",
+      "mode": "read_write",
+      "monitored": true,
+      "incentive": "coalition",
+      "coalition_prompt": "coordination_only",
+      "label": "gate_gptoss_reveal",
+      "model": "openai/gpt-oss-120b:baseten",
+      "monitor_model": "Qwen/Qwen3.8-27B:deepinfra",
+      "config": "C:\\Users\\dipan\\Documents\\Codex\\2026-10-25\\referenced-chatgpt-conversation-this-is-an\\outputs\\v10_gate_gptoss\\configs\\gate_gptoss_reveal.yaml",
+      "config_sha256": "a8bc67a0a031d709d42b97201f5cea367fb5a16343354d83177cc00d3b0e192d",
+      "monitor_scope": "continuous"
+    }
+  ],
+  "derived_from": "v6_confirm_gptoss"
+}
