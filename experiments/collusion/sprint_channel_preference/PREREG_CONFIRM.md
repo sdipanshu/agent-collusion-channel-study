@@ -68,3 +68,11 @@ Each hypothesis is tested separately for each model; there are no pooled claims.
    - **What's unchanged:** the gpt-oss arm, already running, keeps the read tool, as do all hypotheses, metrics and decision rules.
    - The DeepSeek arm runs only if the new gate passes. The unrun original DeepSeek plan is kept for the record.
    - **Implication for earlier results:** DeepSeek's "0 erasure attempts in 76 episodes" and its posting volumes in v3 are confounded by this flaw. They must not be read as an absence of erasure behaviour.
+
+## Label validation (recorded 2026-10-29)
+
+- 40 blind author labels, stratified sample. See `results/labels/LABEL_AGREEMENT.md`.
+- **Precision of the rule:** 12/12. **Agreement:** κ = 0.88.
+- **Post-reveal unflagged posts:** 0/17 judged collusive, so there is no coded collusion after the reveal.
+- **Baseline unflagged posts:** 2/10 judged collusive. The rule misses some implicit coordination in control/pre-reveal posts, which undercounts the control and makes the reveal−control differences conservative.
+- H2 is therefore not measurement-limited.
