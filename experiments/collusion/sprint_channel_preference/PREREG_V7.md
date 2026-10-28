@@ -48,3 +48,10 @@ This was written and committed before any v7 model calls. The design and analysi
    - **Caveat:** a null result for Qwen may partly reflect weaker instruction-following on this interface, not an absence of the behaviour.
    - Targets of the main-arm erasures (own / partner / other) are reported.
 2. **2026-10-28 — v7b result recorded.** H3 is supported (see `results/v7/NONUDGE_RESULTS.md`). No changes were made to the analysis.
+
+3. **2026-10-28 — Qwen arm stopped early by the user, because it was too slow.**
+   - Calls averaged about 32 s, so each episode took about 29 minutes.
+   - It stopped at 8 of 24 episodes (4 control, 4 reveal). In-flight episodes were discarded.
+   - Spend was $0.87.
+   - **Results:** no erasures in either arm (0 vs 0), and retention was 1.00 in both.
+   - **H1 and H2 are inconclusive** (underpowered), and the results are reported descriptively only.
