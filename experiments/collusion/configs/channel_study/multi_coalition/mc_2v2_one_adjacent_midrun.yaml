@@ -11,6 +11,7 @@ environment:
   import_path: experiments.collusion.choice.competitive_dev_env:CompetitiveDevEnvironment
   max_tasks: 8
   skill_eps: 0.1
+  fixture_path: C:\Users\dipan\colosseum\experiments\collusion\choice\fixtures\multi_coalition\2v2_one_adjacent.json
 experiment:
   channel_study:
     enabled: true

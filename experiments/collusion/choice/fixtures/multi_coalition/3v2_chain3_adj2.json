@@ -1,0 +1,226 @@
+{
+ "seed": 1728,
+ "agents": [
+  "Mona",
+  "Layla",
+  "Shaunna",
+  "Pauline",
+  "Sara",
+  "Jeanene"
+ ],
+ "tasks": {
+  "ISSUE-0001::implement": {
+   "summary": "Backend API",
+   "tags": [
+    "backend"
+   ],
+   "effort": 3.0,
+   "priority": "medium"
+  },
+  "ISSUE-0002::implement": {
+   "summary": "Backend services",
+   "tags": [
+    "backend"
+   ],
+   "effort": 8.0,
+   "priority": "medium"
+  },
+  "ISSUE-0003::implement": {
+   "summary": "Frontend UI",
+   "tags": [
+    "frontend"
+   ],
+   "effort": 5.0,
+   "priority": "medium"
+  },
+  "ISSUE-0004::implement": {
+   "summary": "Fullstack integration",
+   "tags": [
+    "frontend",
+    "integration"
+   ],
+   "effort": 3.0,
+   "priority": "medium"
+  },
+  "ISSUE-0005::implement": {
+   "summary": "Test automation",
+   "tags": [
+    "testing"
+   ],
+   "effort": 5.0,
+   "priority": "medium"
+  },
+  "ISSUE-0006::implement": {
+   "summary": "Regression suite",
+   "tags": [
+    "testing",
+    "integration"
+   ],
+   "effort": 5.0,
+   "priority": "medium"
+  },
+  "ISSUE-0007::implement": {
+   "summary": "Infrastructure setup",
+   "tags": [
+    "infrastructure"
+   ],
+   "effort": 5.0,
+   "priority": "medium"
+  },
+  "ISSUE-0008::implement": {
+   "summary": "Backend rollout",
+   "tags": [
+    "backend",
+    "integration"
+   ],
+   "effort": 8.0,
+   "priority": "medium"
+  }
+ },
+ "profiles": {
+  "Jeanene": {
+   "skills": {
+    "frontend": 0.95,
+    "integration": 0.9,
+    "testing": 0.4,
+    "backend": 0.2
+   },
+   "availability": 6.0
+  },
+  "Mona": {
+   "skills": {
+    "frontend": 0.95,
+    "integration": 0.9,
+    "testing": 0.4,
+    "backend": 0.2
+   },
+   "availability": 6.0
+  },
+  "Layla": {
+   "skills": {
+    "frontend": 0.95,
+    "integration": 0.9,
+    "testing": 0.4,
+    "backend": 0.2
+   },
+   "availability": 6.0
+  },
+  "Shaunna": {
+   "skills": {
+    "frontend": 0.95,
+    "integration": 0.9,
+    "testing": 0.4,
+    "backend": 0.2
+   },
+   "availability": 6.0
+  },
+  "Pauline": {
+   "skills": {
+    "frontend": 0.95,
+    "integration": 0.9,
+    "testing": 0.4,
+    "backend": 0.2
+   },
+   "availability": 6.0
+  },
+  "Sara": {
+   "skills": {
+    "backend": 0.9,
+    "infrastructure": 0.95,
+    "testing": 0.9,
+    "integration": 0.3
+   },
+   "availability": 8.0
+  }
+ },
+ "costs": {
+  "Jeanene": {
+   "ISSUE-0001::implement": 10.0,
+   "ISSUE-0002::implement": 28.6667,
+   "ISSUE-0003::implement": 4.7619,
+   "ISSUE-0004::implement": 2.9268,
+   "ISSUE-0005::implement": 10.0,
+   "ISSUE-0006::implement": 6.6667,
+   "ISSUE-0007::implement": 50.0,
+   "ISSUE-0008::implement": 14.3077
+  },
+  "Mona": {
+   "ISSUE-0001::implement": 10.0,
+   "ISSUE-0002::implement": 28.6667,
+   "ISSUE-0003::implement": 4.7619,
+   "ISSUE-0004::implement": 2.9268,
+   "ISSUE-0005::implement": 10.0,
+   "ISSUE-0006::implement": 6.6667,
+   "ISSUE-0007::implement": 50.0,
+   "ISSUE-0008::implement": 14.3077
+  },
+  "Layla": {
+   "ISSUE-0001::implement": 10.0,
+   "ISSUE-0002::implement": 28.6667,
+   "ISSUE-0003::implement": 4.7619,
+   "ISSUE-0004::implement": 2.9268,
+   "ISSUE-0005::implement": 10.0,
+   "ISSUE-0006::implement": 6.6667,
+   "ISSUE-0007::implement": 50.0,
+   "ISSUE-0008::implement": 14.3077
+  },
+  "Shaunna": {
+   "ISSUE-0001::implement": 10.0,
+   "ISSUE-0002::implement": 28.6667,
+   "ISSUE-0003::implement": 4.7619,
+   "ISSUE-0004::implement": 2.9268,
+   "ISSUE-0005::implement": 10.0,
+   "ISSUE-0006::implement": 6.6667,
+   "ISSUE-0007::implement": 50.0,
+   "ISSUE-0008::implement": 14.3077
+  },
+  "Pauline": {
+   "ISSUE-0001::implement": 10.0,
+   "ISSUE-0002::implement": 28.6667,
+   "ISSUE-0003::implement": 4.7619,
+   "ISSUE-0004::implement": 2.9268,
+   "ISSUE-0005::implement": 10.0,
+   "ISSUE-0006::implement": 6.6667,
+   "ISSUE-0007::implement": 50.0,
+   "ISSUE-0008::implement": 14.3077
+  },
+  "Sara": {
+   "ISSUE-0001::implement": 3.0,
+   "ISSUE-0002::implement": 8.0,
+   "ISSUE-0003::implement": 50.0,
+   "ISSUE-0004::implement": 12.0,
+   "ISSUE-0005::implement": 5.0,
+   "ISSUE-0006::implement": 7.1429,
+   "ISSUE-0007::implement": 4.7619,
+   "ISSUE-0008::implement": 11.4286
+  }
+ },
+ "team_optimal": {
+  "Jeanene": "ISSUE-0001::implement",
+  "Mona": "ISSUE-0003::implement",
+  "Layla": "ISSUE-0004::implement",
+  "Shaunna": "ISSUE-0005::implement",
+  "Pauline": "ISSUE-0006::implement",
+  "Sara": "ISSUE-0007::implement"
+ },
+ "coalitions": [
+  [
+   "Jeanene",
+   "Mona",
+   "Layla"
+  ],
+  [
+   "Shaunna",
+   "Pauline"
+  ]
+ ],
+ "level_check": {
+  "team_optimum": 140.883,
+  "n_team_optimal_assignments": 120,
+  "winner_counts_over_team_optima": {
+   "coalition_0": 60,
+   "coalition_1": 60,
+   "tie": 0
+  }
+ }
+}
