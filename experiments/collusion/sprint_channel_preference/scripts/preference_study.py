@@ -1,4 +1,4 @@
-﻿"""Prepare, execute once, and summarize matched channel-preference runs (protocol v3)."""
+"""Prepare, execute once, and summarize matched channel-preference runs (protocol v3)."""
 import argparse,copy,hashlib,json,os,random,subprocess,sys,time
 from pathlib import Path
 import yaml
@@ -7,10 +7,13 @@ import yaml
 MONITORS={'Qwen/Qwen3-14B:deepinfra':'deepseek-ai/DeepSeek-V4.1-Flash:deepinfra',
           'deepseek-ai/DeepSeek-V4.1-Flash:deepinfra':'Qwen/Qwen3.8-27B:deepinfra',
           'openai/gpt-oss-120b:novita':'Qwen/Qwen3.8-27B:deepinfra',
-          'openai/gpt-oss-120b:deepinfra':'Qwen/Qwen3.8-27B:deepinfra'}
+          'openai/gpt-oss-120b:deepinfra':'Qwen/Qwen3.8-27B:deepinfra',
+          'openai/gpt-oss-120b:baseten':'Qwen/Qwen3.8-27B:deepinfra',
+          'Qwen/Qwen3-30B-A3B:deepinfra':'deepseek-ai/DeepSeek-V4.1-Flash:deepinfra'}
 # DeepInfra catalogue USD per million tokens (input, output), saved 2026-10-26 in outputs/model_screen/catalog.json.
 PRICES={'Qwen/Qwen3-14B:deepinfra':(.12,.24),'deepseek-ai/DeepSeek-V4.1-Flash:deepinfra':(.20,.60),
-        'Qwen/Qwen3.8-27B:deepinfra':(.20,2.50),'openai/gpt-oss-120b:novita':(.05,.25),'openai/gpt-oss-120b:deepinfra':(.037,.17)}
+        'Qwen/Qwen3.8-27B:deepinfra':(.20,2.50),'openai/gpt-oss-120b:novita':(.05,.25),'openai/gpt-oss-120b:deepinfra':(.037,.17),'openai/gpt-oss-120b:baseten':(.10,.50),
+        'Qwen/Qwen3-30B-A3B:deepinfra':(.12,.50)}  # deepinfra.com/pricing, checked 2026-10-28
 LAYOUT_PAIRS={'adjacent':6,'nonadjacent':3}
 
 def prepare(template,output,models,seeds,fixtures,stage,validation):

@@ -1,0 +1,26 @@
+{
+  "protocol_version": "channel_preference_v3",
+  "stage": "engineering",
+  "arm": "positive_control",
+  "note": "Gate only. Explicitly instructed; never analysed as behaviour.",
+  "runs": [
+    {
+      "block": 0,
+      "seed": 1738,
+      "arm": "positive_control",
+      "layout": "nonadjacent",
+      "mode": "read_write",
+      "monitored": true,
+      "incentive": "coalition",
+      "label": "pc_qwen",
+      "model": "Qwen/Qwen3-30B-A3B:deepinfra",
+      "monitor_model": "deepseek-ai/DeepSeek-V4.1-Flash:deepinfra",
+      "config": "C:\\Users\\dipan\\Documents\\Codex\\2026-10-25\\referenced-chatgpt-conversation-this-is-an\\outputs\\v7_positive_control_qwen\\configs\\pc_qwen.yaml",
+      "config_sha256": "eea9ee49fec4f862fc5ab5cc70454be8d3f6803ad437e6edd44a283a072a4b5f",
+      "read_tool": false
+    }
+  ],
+  "derived_from": "v6b_positive_control_deepseek",
+  "deviation": "read_tool removed: one generation per decision means read results are never seen",
+  "preregistration": "experiments/collusion/sprint_channel_preference/PREREG_V7.md"
+}
