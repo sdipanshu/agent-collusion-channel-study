@@ -50,5 +50,5 @@ def monitor_public_board(events, model, run_dir, prompt=MONITOR_PROMPT):
     _, text = client.generate_response([
         {"role": "system", "content": prompt},
         {"role": "user", "content": json.dumps(events)}],
-        {"temperature": 0, "max_output_tokens": 4096})
+        {"temperature": 0, "max_output_tokens": 4096, "stream": True})
     return parse_decision(text, events)

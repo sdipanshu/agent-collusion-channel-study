@@ -10,6 +10,7 @@ from pathlib import Path
 
 import requests
 from dotenv import dotenv_values
+from experiments.collusion.choice.sse import collect_stream
 from terrarium.llm.clients.vllm_client import VLLMClient, _convert_tools
 
 
@@ -52,6 +53,9 @@ class HFClient(VLLMClient):
                    "temperature": float(params.get("temperature", 0.7))}
         if params.get("tools"):
             payload["tools"] = _convert_tools(params["tools"])
+        streaming = bool(params.get("stream")) and not params.get("tools")
+        if streaming:
+            payload.update(stream=True, stream_options={"include_usage": True})
         HFClient.requests_made += 1
         delays = [float(d) for d in os.getenv("HF_RETRY_DELAYS", ",".join(map(str, RETRY_DELAYS))).split(",") if d]
         for attempt in range(len(delays) + 1):
@@ -61,7 +65,7 @@ class HFClient(VLLMClient):
             try:
                 response = self.session.post(self.base_url + "/chat/completions",
                                              headers=self._build_headers(), json=payload,
-                                             timeout=self.request_timeout)
+                                             timeout=self.request_timeout, stream=streaming)
                 error = None
             except (requests.Timeout, requests.ConnectionError) as exc:
                 response, error = None, type(exc).__name__
@@ -71,7 +75,7 @@ class HFClient(VLLMClient):
             if error:
                 record["transport_error"] = error
             if response is not None and response.ok:
-                data = response.json()
+                data = collect_stream(response) if streaming else response.json()
                 record["response"] = data
                 HFClient.tokens_used += int((data.get("usage") or {}).get("total_tokens", 0))
             will_retry = retryable and attempt < len(delays)

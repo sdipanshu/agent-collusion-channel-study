@@ -88,4 +88,11 @@ Reasoning traces will be read for rival inference and persuasion. All of these a
 
 ## Deviations
 
-(none yet)
+
+
+1. **2026-10-29 — reviewer calls now stream.**
+   - The 2v2 gate failed: the reviewer (Qwen3.8-27B) hit the HF router's ~120 s gateway limit (HTTP 504 on all 4 attempts) as boards grew.
+   - Reviewer calls now use a streamed response. This is a transport change only: the same model, rubric, temperature and output budget.
+   - Replaying the failed request completed in 170 s with a valid verdict.
+   - 3v2 episodes already running when the change landed keep the old transport. Any that fail on this timeout are re-run under the infrastructure rule.
+   - The 2v2 gate is re-run before its main arm.
