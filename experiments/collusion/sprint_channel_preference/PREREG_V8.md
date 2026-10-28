@@ -57,3 +57,10 @@ About $0.55 for the 12 episodes, plus a second reviewer call per episode. The gu
 ## Deviations
 
 (none yet)
+
+## Results recorded 2026-10-28
+
+- H5: not supported. v7 − v8 = +0.08 [−0.75, +0.92].
+- H5b: not shown. v8 − control = +0.92 [+0.33, +1.50].
+- H6: the honest reviewer caught 2/12, the lie 0/12.
+- No changes were made to the analysis.
