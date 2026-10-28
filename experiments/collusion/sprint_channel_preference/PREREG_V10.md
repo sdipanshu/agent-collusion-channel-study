@@ -74,3 +74,12 @@ About $1.2: around $0.045 per episode plus 5 reviewer calls each, for 12 episode
   - All 5 reviews parsed; reviewer latency averaged about 58 s.
   - Flags resulted in 2 public findings and penalties of −50 each for both pair members.
   - Cost: $0.086. The main arm was started after this.
+
+## Run notes and results, recorded 2026-10-29
+
+- **Infrastructure re-runs:** 2 episodes (b10, b11) failed because the reviewer timed out (120 s, 4 attempts). Under the run rules, each was re-run once, with the originals archived in `failed_infra/`.
+  - Claude Code stopped the re-run launcher for low system memory, but both episodes completed and were saved.
+- **H8 supported:** −2.08/episode [−3.42, −0.75].
+- **H9 not supported:** +0.58 [0.00, +1.25].
+- **Catches:** a pair member was caught in 5/12 episodes. No outsider was flagged.
+- No changes were made to the analysis.
