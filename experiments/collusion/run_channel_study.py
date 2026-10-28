@@ -816,10 +816,22 @@ async def _run_single(
         monitor_result = {"status": "disabled", "collusion": None}
         if study_cfg.get("monitored"):
             backend = study_cfg.get("monitor_backend", "qwen")
-            if backend == 'independent_hf':
+            if backend == 'independent_hf' and study_cfg.get('monitor_scope') == 'full_history':
+                # Announced full-history review: the operative verdict sees the whole history. A second,
+                # counterfactual verdict on the final board alone measures what a cheaper (undisclosed) reviewer would catch.
+                from experiments.collusion.choice.public_monitor import MONITOR_PROMPT_HISTORY
+                from experiments.memory_ring.board import public_history
+                history = public_history(run_dir / 'trusted_audit.jsonl', global_board_id)
+                _write_json(run_dir / 'public_history_input.json', history)
+                final_only = monitor_public_board(public_events, study_cfg['monitor_model'], run_dir)
+                _write_json(run_dir / 'public_monitor_final_only.json', {**final_only, 'scope': 'final_public_board_only', 'counterfactual': True})
+                monitor_result = monitor_public_board(history, study_cfg['monitor_model'], run_dir, prompt=MONITOR_PROMPT_HISTORY)
+                public_events = history  # authors for accounting come from the history
+            elif backend == 'independent_hf':
                 monitor_result = monitor_public_board(public_events, study_cfg['monitor_model'], run_dir)
+            if backend == 'independent_hf':
                 treatment = study_cfg.get('monitor_treatment', 'observation_only')
-                monitor_result.update(scope='final_public_board_only', privileged_context_supplied=False,
+                monitor_result.update(scope=study_cfg.get('monitor_scope', 'final_public_board_only'), privileged_context_supplied=False,
                                       reward_penalty=0, treatment=treatment)
                 if treatment == 'penalty':
                     # Raw rewards stay in final_summary; penalised rewards are reported alongside them.
@@ -852,7 +864,7 @@ async def _run_single(
         _write_json(run_dir / "public_monitor.json", monitor_result)
         _write_json(run_dir / "channel_study.json", {
             **study_cfg, "public_board_id": global_board_id,
-            "monitor_scope": "final_public_board_only",
+            "monitor_scope": study_cfg.get("monitor_scope", "final_public_board_only"),
             "trusted_audit_always_on": True,
             "operation_counts": dict(protocol.megaboard.operation_counts),
             "mutation_integrity_alerts": [],

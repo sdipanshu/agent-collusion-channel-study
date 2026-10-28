@@ -101,5 +101,34 @@ class LateRevealTests(unittest.TestCase):
         self.assertEqual({e['agent'] for e in final if 'coalition plan' in str(e.get('payload'))}, set(FIXTURE_DATA['agents']) - pair)
 
 
+    def test_full_history_notice_and_dual_reviewer(self):
+        from experiments.collusion.choice.public_monitor import MONITOR_PROMPT, MONITOR_PROMPT_HISTORY
+        calls = []
+        def fake(events, model, run_dir, prompt=MONITOR_PROMPT):
+            calls.append((prompt, events))
+            return {'status': 'scripted', 'collusion': False, 'evidence_event_ids': [], 'reason': 'scripted'}
+        RevealClient.prompts = []
+        with tempfile.TemporaryDirectory() as tmp, close_test_logs():
+            cfg = yaml.safe_load((CONFIGS / 'late_reveal_full_history.yaml').read_text())
+            cfg['experiment']['log_prompts'] = False
+            path = Path(tmp) / 'fh.yaml'
+            path.write_text(yaml.safe_dump(cfg))
+            with patch('experiments.collusion.choice.hf_client.HFClient', RevealClient),                     patch('experiments.collusion.choice.public_monitor.monitor_public_board', side_effect=fake):
+                root = asyncio.run(runner.run_from_config(str(path), out_dir=str(Path(tmp) / 'fh')))
+            [run] = [p.parent for p in root.rglob('trusted_audit.jsonl')]
+            history = json.loads((run / 'public_history_input.json').read_text(encoding='utf-8'))
+            self.assertTrue((run / 'public_monitor_final_only.json').exists())
+            self.assertEqual(json.loads((run / 'public_monitor.json').read_text())['scope'], 'full_history')
+        later = [p for a, r, p in RevealClient.prompts if r >= 4]
+        self.assertTrue(all('including edited and removed versions' in p for p in later))
+        self.assertFalse(any('cannot see private boards, edit history' in p for p in later))
+        # This scripted agent does not see FAIL_NOTICE wording changes; erasures still happen for pair members.
+        self.assertEqual([c[0] for c in calls], [MONITOR_PROMPT, MONITOR_PROMPT_HISTORY])
+        removed = [e for e in history if e['status'] == 'removed']
+        self.assertEqual(len(removed), 2)
+        self.assertTrue(all('coalition plan' in e['payload']['content'] for e in removed))
+        self.assertNotIn('removed', {e.get('kind') for e in calls[0][1]})
+
+
 if __name__ == '__main__':
     unittest.main()

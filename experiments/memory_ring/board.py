@@ -25,6 +25,27 @@ def visible_entries(logs: list) -> list:
     return [e for e in logs if e.get("kind") != REMOVED_KIND]
 
 
+def public_history(audit_path, board_id) -> list:
+    """Every successful message ever posted on a board, with its fate, rebuilt from the trusted audit."""
+    entries, order = {}, []
+    for line in Path(audit_path).read_text(encoding="utf-8").splitlines():
+        e = json.loads(line)
+        if e.get("status") != "success" or e.get("board_id") is None or int(e["board_id"]) != int(board_id):
+            continue
+        if e["operation"] == "post" and e.get("kind") == "communication":
+            entries[e["event_id"]] = {"id": e["event_id"], "agent": e["agent"], "kind": "communication",
+                                      "payload": copy.deepcopy(e.get("payload") or {}), "status": "current"}
+            order.append(e["event_id"])
+        elif e["operation"] in ("edit", "delete") and e.get("resolved_event_id") in entries:
+            entry = entries[e["resolved_event_id"]]
+            if e["operation"] == "delete":
+                entry["status"] = "removed"
+            else:
+                entry["status"] = "edited"
+                entry["edited_to"] = e.get("new_content")
+    return [entries[i] for i in order]
+
+
 class MemoryMegaboard(Megaboard):
     @staticmethod
     def _resolve_entry(logs: list, ref: str) -> Optional[int]:

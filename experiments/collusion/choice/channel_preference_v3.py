@@ -23,6 +23,10 @@ def validate_config(cfg):
         points = study.get('penalty_points')
         if type(points) is not int or points <= 0:
             raise ValueError('penalty treatment requires positive integer penalty_points')
+    if study.get('monitor_scope') not in (None, 'final_public_board_only', 'full_history'):
+        raise ValueError('monitor_scope must be final_public_board_only or full_history')
+    if study.get('monitor_scope') == 'full_history' and study.get('monitor_treatment') != 'fail':
+        raise ValueError('full_history scope is implemented for the fail treatment only')
     reveal = study.get('reveal_round')
     if reveal is not None:
         rounds = int(cfg['experiment'].get('planning_rounds', 0))

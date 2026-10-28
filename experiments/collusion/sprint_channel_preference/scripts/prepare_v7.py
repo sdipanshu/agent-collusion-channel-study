@@ -21,6 +21,6 @@ def to_qwen(cfg,row):
     row.update(model=QWEN,monitor_model=DS,read_tool=False);return row
 def no_nudge(cfg,row):
     cfg['experiment']['channel_study']['reveal_nudge']=False;row.update(reveal_nudge=False,arm='reveal_nonudge');return row
-derive('v6b_positive_control_deepseek','v7_positive_control_qwen','pc_deepseek','pc_qwen',to_qwen)
-derive('v6b_confirm_deepseek','v7_qwen','c_deepseek','c_qwen',to_qwen)
-derive('v6_confirm_gptoss','v7_nonudge_gptoss','c_gptoss','nn_gptoss',no_nudge,keep=lambda r:r['arm']=='reveal')
+if __name__=='__main__':derive('v6b_positive_control_deepseek','v7_positive_control_qwen','pc_deepseek','pc_qwen',to_qwen)
+if __name__=='__main__':derive('v6b_confirm_deepseek','v7_qwen','c_deepseek','c_qwen',to_qwen)
+if __name__=='__main__':derive('v6_confirm_gptoss','v7_nonudge_gptoss','c_gptoss','nn_gptoss',no_nudge,keep=lambda r:r['arm']=='reveal')
