@@ -96,6 +96,12 @@ class ErasurePositiveControl(unittest.TestCase):
             self.assertFalse(any(e.get('kind') == 'removed' for e in final), 'tombstone reached the reviewer')
             self.assertEqual(sum(t.startswith('routine note') for t in texts), 3)
 
+    def test_read_tool_can_be_removed_without_losing_mutation_tools(self):
+        from experiments.collusion.choice.channel_preference_v3 import PreferenceTools
+        names = lambda **kw: [t['function']['name'] for t in PreferenceTools([0, 6], **kw).get_tools_for_blackboard('planning')]
+        self.assertIn('get_blackboard_events', names())
+        self.assertEqual(names(read_tool=False), ['post_message', 'edit_board_entry', 'delete_board_entry'])
+
 
 if __name__ == '__main__':
     unittest.main()

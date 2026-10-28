@@ -109,12 +109,16 @@ class PreferenceProtocol(LocalCommunicationProtocol):
 
 
 class PreferenceTools(MemoryToolsetDiscovery):
-    def __init__(self, board_ids):
+    def __init__(self, board_ids, read_tool=True):
         super().__init__()
         self.board_ids = sorted(int(x) for x in board_ids)
+        # With one generation per decision a read's result is never seen, so a read only burns the turn.
+        self.read_tool = read_tool
 
     def get_tools_for_blackboard(self, phase, environment_name='', retrieval_enabled=False):
         tools = copy.deepcopy(super().get_tools_for_blackboard(phase, environment_name, retrieval_enabled))
+        if not self.read_tool:
+            tools = [t for t in tools if t['function']['name'] != 'get_blackboard_events']
         for tool in tools:
             fn = tool['function']; params = fn['parameters']; props = params.get('properties', {})
             if 'blackboard_id' in props:

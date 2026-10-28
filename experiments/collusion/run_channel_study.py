@@ -545,7 +545,8 @@ async def _run_single(
 
     if v3:
         for agent in agents:
-            agent.toolset_discovery = PreferenceTools(protocol.megaboard.get_agent_blackboards(agent.name))
+            agent.toolset_discovery = PreferenceTools(protocol.megaboard.get_agent_blackboards(agent.name),
+                                                      read_tool=cfg['experiment']['channel_study'].get('read_tool', True))
         _write_json(run_dir / 'design.json', {
             'protocol_version': VERSION, 'designated_pair': colluders,
             'incentive': cfg['experiment']['channel_study']['incentive'],
