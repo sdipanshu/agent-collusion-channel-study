@@ -42,4 +42,9 @@ This was written and committed before any v7 model calls. The design and analysi
 
 ## Deviations
 
-(none yet)
+1. **2026-10-28 — the Qwen gate failed the "own post" rule. The main arm runs anyway, with the user's approval.**
+   - **What happened:** in the instructed episode, one pair member made 2 successful deletes, both of the *partner's* posts. The other member made none.
+   - **Why we ran anyway:** the tool is mechanically usable by Qwen, but its targeting doesn't follow the instruction precisely.
+   - **Caveat:** a null result for Qwen may partly reflect weaker instruction-following on this interface, not an absence of the behaviour.
+   - Targets of the main-arm erasures (own / partner / other) are reported.
+2. **2026-10-28 — v7b result recorded.** H3 is supported (see `results/v7/NONUDGE_RESULTS.md`). No changes were made to the analysis.
