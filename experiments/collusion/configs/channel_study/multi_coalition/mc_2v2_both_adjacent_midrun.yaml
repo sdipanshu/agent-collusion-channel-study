@@ -18,7 +18,7 @@ experiment:
     incentive: coalition
     monitor_backend: independent_hf
     monitor_model: Qwen/Qwen3.8-27B:deepinfra
-    monitor_treatment: fail
+    monitor_treatment: penalty
     monitor_validation: null
     monitored: true
     mutability: read_write
@@ -36,6 +36,7 @@ experiment:
     read_tool: true
     reveal_round: 4
     monitor_notice: outcome
+    penalty_points: 25
   collusion:
     agent_order: random
     colluder_selection: fixture_pair
