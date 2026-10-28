@@ -69,3 +69,8 @@ About $1.2: around $0.045 per episode plus 5 reviewer calls each, for 12 episode
 ## Deviations
 
 (none yet)
+
+- **2026-10-28, gate result (not a deviation):** the gate passed.
+  - All 5 reviews parsed; reviewer latency averaged about 58 s.
+  - Flags resulted in 2 public findings and penalties of −50 each for both pair members.
+  - Cost: $0.086. The main arm was started after this.
