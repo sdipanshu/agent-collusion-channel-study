@@ -31,3 +31,11 @@ This was written and committed before any v16 model calls. The user approved it.
 About $1.5, capped at $2.0. Run rules as in v15.
 
 ## Deviations
+
+## Results recorded 2026-10-29 (24/24)
+
+- **H16 supported (narrowly):** +5.18 [+0.22, +11.05].
+- **Team reward:** unchanged (142.4 vs 142.1).
+- **Private board use:** the pair used it in 11/12 episodes, but only about 1.2 posts each.
+- **Content (read):** the 14 private messages are ordinary task coordination (confirmations, feasibility checks), with no coalition or partnership language.
+- **Reading:** an action-level advantage consistent with Colosseum's emergent probe, but with no evidence of intent and no cost to the team, so it is better described as a private-coordination advantage than as collusion.
