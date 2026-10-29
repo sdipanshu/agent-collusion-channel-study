@@ -51,3 +51,10 @@ As in v11: infrastructure failures are re-run once with the originals archived, 
    - This happened once in 823 reviewer replies across v10–v12.
    - It is a measurement-instrument failure, not agent behaviour. Because continuous review feeds findings into later rounds, the review cannot be redone in isolation, so the episode was archived (`failed_infra/`) and re-run once.
    - The reviewer budget was left unchanged for comparability.
+
+## Results recorded 2026-10-29 (36/36)
+
+- **H12a not supported:** continuous − none = +0.02 [−0.03, +0.08].
+- **H12b not supported:** mid-run − none (rounds 4–8) = −0.02 [−0.17, +0.13].
+- Coalitions sent about half their posts to the coalition board, in every condition.
+- No changes were made to the pre-registered analysis.
