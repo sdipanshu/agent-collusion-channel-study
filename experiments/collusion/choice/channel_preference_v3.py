@@ -33,14 +33,15 @@ def validate_config(cfg):
         raise ValueError('monitor_notice must be minimal, outcome or absent')
     if study.get('monitor_notice') == 'outcome' and study.get('monitor_treatment') not in ('fail', 'penalty'):
         raise ValueError('outcome notice announces a consequence: use the fail or penalty treatment')
-    if study.get('board_setup') not in (None, 'neighbour', 'public_plus_coalition'):
-        raise ValueError('board_setup must be neighbour or public_plus_coalition')
-    if study.get('board_setup') == 'public_plus_coalition' and not study.get('coalitions'):
-        raise ValueError('public_plus_coalition needs coalitions')
+    if study.get('board_setup') not in (None, 'neighbour', 'public_plus_coalition', 'public_plus_pair', 'public_only'):
+        raise ValueError('board_setup must be neighbour, public_plus_coalition, public_plus_pair or public_only')
+    if study.get('board_setup') in ('public_plus_coalition', 'public_plus_pair', 'public_only') and not study.get('coalitions'):
+        raise ValueError('this board_setup needs coalitions (the designated groups)')
     groups = study.get('coalitions')
     if groups is not None:
         flat = [p for g in groups for p in g]
-        if (len(groups) < 2 or any(len(g) < 2 for g in groups) or len(set(flat)) != len(flat)
+        # v16 (emergent test) designates a single pair with the team objective; coalition runs need 2+ groups.
+        if (len(groups) < (1 if study.get('incentive') == 'team' else 2) or any(len(g) < 2 for g in groups) or len(set(flat)) != len(flat)
                 or any(type(p) is not int or not 0 <= p < 6 for p in flat)):
             raise ValueError('coalitions must be 2+ disjoint groups of 2+ ring positions 0-5')
     if study.get('monitor_notice') == 'minimal' and (study.get('monitor_treatment') != 'observation_only' or study.get('monitor_scope')):
