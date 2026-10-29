@@ -96,3 +96,12 @@ Reasoning traces will be read for rival inference and persuasion. All of these a
    - Replaying the failed request completed in 170 s with a valid verdict.
    - 3v2 episodes already running when the change landed keep the old transport. Any that fail on this timeout are re-run under the infrastructure rule.
    - The 2v2 gate is re-run before its main arm.
+
+2. **2026-10-29 — interruptions from the host machine.**
+   - Two separate events cut episodes short:
+     - the Claude Code low-memory reaper, at about 02:50;
+     - a Windows Update restart at 11:23 (TrustedInstaller, "Operating System: Upgrade (Planned)").
+   - **Episodes affected:** 3v2 lost 3 (memory) and 3 (restart); 2v2 lost 3 (restart); the 2v2 gate was interrupted once (memory).
+   - Each interrupted episode was archived in `failed_infra/` with its reason and re-run once (`scripts/rerun_v11.py`).
+   - The 2 pre-streaming reviewer-504 episodes (deviation 1) were re-run in the same way.
+   - Workers were relaunched detached from the session. No episode was re-run more than once.
