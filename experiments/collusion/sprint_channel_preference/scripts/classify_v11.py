@@ -59,9 +59,16 @@ if __name__=='__main__':
     P=posts();done={json.loads(l)['id'] for l in OUT.read_text(encoding='utf-8').splitlines()} if OUT.exists() else set()
     todo=[p for p in P if p['id'] not in done][:limit];H={'Authorization':'Bearer '+load_token()};tin=tout=0
     print('posts',len(P),'already',len(done),'to do',len(todo),flush=True)
-    for i in range(0,len(todo),BATCH):
-        b=todo[i:i+BATCH];res,u=classify(b,H);tin+=u.get('prompt_tokens',0);tout+=u.get('completion_tokens',0)
-        with OUT.open('a',encoding='utf-8') as f:
-            for p,x in zip(b,res):f.write(json.dumps({**p,**{k:x.get(k) for k in ('persuasion','persuasion_targets','rival_inference','own_disclosure')}},ensure_ascii=False)+'\n')
-        if i//BATCH%20==0:print(f'{i+len(b)}/{len(todo)} cost so far ${tin*0.09/1e6+tout*0.55/1e6:.3f}',flush=True)
+    import threading
+    from concurrent.futures import ThreadPoolExecutor
+    lock=threading.Lock();cost=[0,0,0]
+    def work(i):
+        b=todo[i:i+BATCH];res,u=classify(b,H)
+        with lock:  # batches are independent; one writer at a time keeps the file consistent
+            cost[0]+=u.get('prompt_tokens',0);cost[1]+=u.get('completion_tokens',0);cost[2]+=len(b)
+            with OUT.open('a',encoding='utf-8') as f:
+                for p,x in zip(b,res):f.write(json.dumps({**p,**{k:x.get(k) for k in ('persuasion','persuasion_targets','rival_inference','own_disclosure')}},ensure_ascii=False)+'\n')
+            if (i//BATCH)%20==0:print(f'{cost[2]}/{len(todo)} cost so far ${cost[0]*0.09/1e6+cost[1]*0.55/1e6:.3f}',flush=True)
+    with ThreadPoolExecutor(4) as pool:list(pool.map(work,range(0,len(todo),BATCH)))
+    tin,tout=cost[0],cost[1]
     print(f'done; tokens in {tin} out {tout}; cost ${tin*0.09/1e6+tout*0.55/1e6:.3f}')
