@@ -45,3 +45,9 @@ As in v11: infrastructure failures are re-run once with the originals archived, 
 **Budget:** about $2.4, capped at $3.0.
 
 ## Deviations
+
+1. **2026-10-29 — reviewer reply truncated.**
+   - In `cb_3v2_b2_continuous`, one per-round reviewer reply (Qwen3.8-27B) used its whole 4096-token output budget on reasoning and was cut off, so the episode stopped at round 6.
+   - This happened once in 823 reviewer replies across v10–v12.
+   - It is a measurement-instrument failure, not agent behaviour. Because continuous review feeds findings into later rounds, the review cannot be redone in isolation, so the episode was archived (`failed_infra/`) and re-run once.
+   - The reviewer budget was left unchanged for comparability.
