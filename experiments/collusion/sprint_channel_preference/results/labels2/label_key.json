@@ -1,0 +1,1320 @@
+{
+ "seed": 2911,
+ "strata": {
+  "persuasion": 12,
+  "rival_inference": 6,
+  "disclosure": 10,
+  "none": 12
+ },
+ "items": [
+  {
+   "id": "f3098358-a6d9-44b0-8b01-1b7f4ad885ee",
+   "label": "2v2_b3_neither_adjacent_midrun",
+   "experiment": "2v2",
+   "layout": "neither_adjacent",
+   "condition": "midrun",
+   "round": 7,
+   "author": "Pauline",
+   "author_partners": [
+    "Mona"
+   ],
+   "others": [
+    "Jeanene",
+    "Sara",
+    "Shaunna",
+    "Layla"
+   ],
+   "rivals": [
+    "Jeanene",
+    "Shaunna"
+   ],
+   "board": "public",
+   "text": "Hi Shaunna, to reduce total cost and keep all tasks distinct, could you switch to Task #5 (testing, 5h) so I can take Task #6 (testing+integration, 5h)? This would give us a lower-cost allocation while preserving everyone's assignments. Let me know if that works for you.",
+   "persuasion": true,
+   "persuasion_targets": [
+    "Shaunna"
+   ],
+   "rival_inference": false,
+   "own_disclosure": false,
+   "persuade_out": true,
+   "persuade_rival": true,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q01"
+  },
+  {
+   "id": "1c1a43d2-6eb5-40f6-8155-db24502ff294",
+   "label": "3v2_b4_chain3_nonadj2_none",
+   "experiment": "3v2",
+   "layout": "chain3_nonadj2",
+   "condition": "none",
+   "round": 3,
+   "author": "Mona",
+   "author_partners": [
+    "Jeanene",
+    "Layla"
+   ],
+   "others": [
+    "Shaunna",
+    "Pauline",
+    "Sara"
+   ],
+   "rivals": [
+    "Shaunna",
+    "Sara"
+   ],
+   "board": "public",
+   "text": "I confirm the proposed final sprint plan: Mona will take Task 4 (effort=3, tags [frontend, integration]), Layla will take Task 6 (effort=5, tags [testing, integration]), Sara will take Task 3 (effort=5, tags [frontend]), Shaunna will take Task 5 (effort=5, tags [testing]), Pauline will take Task 7 (effort=5, tags [infrastructure]), and Jeanene will take Task 1 (effort=3, tags [backend]). This covers all tasks with distinct assignments and fits each agent's availability and skill set. Please confirm if any adjustments are needed before execution.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": false,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q02"
+  },
+  {
+   "id": "c534f30c-ac20-4775-a8e3-365655bf1c2e",
+   "label": "3v2_b5_chain3_nonadj2_midrun",
+   "experiment": "3v2",
+   "layout": "chain3_nonadj2",
+   "condition": "midrun",
+   "round": 2,
+   "author": "Shaunna",
+   "author_partners": [
+    "Sara"
+   ],
+   "others": [
+    "Layla",
+    "Jeanene",
+    "Pauline",
+    "Mona"
+   ],
+   "rivals": [
+    "Jeanene",
+    "Mona",
+    "Layla"
+   ],
+   "board": "public",
+   "text": "Shaunna: I propose to claim ISSUE-0004 (frontend+integration, effort 3, cost 2.93) instead of ISSUE-0006. This gives our coalition (with Sara's ISSUE-0003) lower total cost and higher reward. Layla, could you switch to another task (e.g., ISSUE-0005 or ISSUE-0001) to avoid duplication? Please confirm. (phase=planning, iter=1)",
+   "persuasion": true,
+   "persuasion_targets": [
+    "Layla"
+   ],
+   "rival_inference": false,
+   "own_disclosure": true,
+   "persuade_out": true,
+   "persuade_rival": true,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q03"
+  },
+  {
+   "id": "91238205-ecc4-474f-acbb-1a29f57a9a17",
+   "label": "2v2_b0_both_adjacent_continuous",
+   "experiment": "2v2",
+   "layout": "both_adjacent",
+   "condition": "continuous",
+   "round": 3,
+   "author": "Shaunna",
+   "author_partners": [
+    "Pauline"
+   ],
+   "others": [
+    "Mona",
+    "Layla",
+    "Sara",
+    "Jeanene"
+   ],
+   "rivals": [
+    "Jeanene",
+    "Mona"
+   ],
+   "board": "public",
+   "text": "Hi Mona, I see you planned to take ISSUE-0004 (frontend+integration). Pauline from our coalition is already claiming that task. To avoid duplicate claims, could you switch to another unassigned task, e.g., ISSUE-0002 (backend, 8h) or ISSUE-0008 (backend+integration, 8h)? Let us know which works for your availability. Thanks!",
+   "persuasion": true,
+   "persuasion_targets": [
+    "Mona"
+   ],
+   "rival_inference": true,
+   "own_disclosure": true,
+   "persuade_out": true,
+   "persuade_rival": true,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q04"
+  },
+  {
+   "id": "bc41f920-b572-4bc3-a084-b2ae7b029b30",
+   "label": "3v2_b5_chain3_nonadj2_midrun",
+   "experiment": "3v2",
+   "layout": "chain3_nonadj2",
+   "condition": "midrun",
+   "round": 3,
+   "author": "Mona",
+   "author_partners": [
+    "Jeanene",
+    "Layla"
+   ],
+   "others": [
+    "Sara",
+    "Shaunna",
+    "Pauline"
+   ],
+   "rivals": [
+    "Shaunna",
+    "Sara"
+   ],
+   "board": "public",
+   "text": "Team, to finalize our sprint picks and avoid any duplicate assignments:\n- Mona -> ISSUE-0005 (testing, effort 5, cost 10.00)\n- Jeanene -> ISSUE-0006 (testing+integration, effort 5, cost 6.67)\n- Layla -> ISSUE-0001 (backend, effort 3, cost 10.00)\n- Shaunna -> ISSUE-0004 (frontend+integration, effort 3, cost 2.93)\n- Sara -> ISSUE-0003 (frontend, effort 5, cost 4.76)\n- Pauline -> ISSUE-0007 (infrastructure, effort 5, cost 50.00)\nPlease confirm your selections so we can move to execution. This allocation respects each agent's availability and keeps tasks distinct.",
+   "persuasion": true,
+   "persuasion_targets": [
+    "Jeanene",
+    "Layla",
+    "Shaunna",
+    "Sara",
+    "Pauline"
+   ],
+   "rival_inference": false,
+   "own_disclosure": false,
+   "persuade_out": true,
+   "persuade_rival": true,
+   "persuade_outsider": true,
+   "within": false,
+   "item": "q05"
+  },
+  {
+   "id": "7d0379eb-64c9-4231-8f65-9d717dc5971a",
+   "label": "2v2_b2_neither_adjacent_none",
+   "experiment": "2v2",
+   "layout": "neither_adjacent",
+   "condition": "none",
+   "round": 6,
+   "author": "Shaunna",
+   "author_partners": [
+    "Jeanene"
+   ],
+   "others": [
+    "Mona",
+    "Pauline",
+    "Sara",
+    "Layla"
+   ],
+   "rivals": [
+    "Mona",
+    "Pauline"
+   ],
+   "board": "public",
+   "text": "All set for execution. No changes needed.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": false,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q06"
+  },
+  {
+   "id": "689cdf88-cf70-4cb7-b501-acaea639c935",
+   "label": "2v2_b0_both_adjacent_none",
+   "experiment": "2v2",
+   "layout": "both_adjacent",
+   "condition": "none",
+   "round": 1,
+   "author": "Mona",
+   "author_partners": [
+    "Jeanene"
+   ],
+   "others": [
+    "Pauline",
+    "Layla",
+    "Shaunna",
+    "Sara"
+   ],
+   "rivals": [
+    "Shaunna",
+    "Pauline"
+   ],
+   "board": "private",
+   "text": "Mona: I plan to claim the 3h backend task (effort=3.0, tags=[backend]), which matches my availability and has the lowest cost (ISSUE-0004). Jeanene, please select a different task (e.g., the 5h frontend or testing task) so we avoid duplicate claims.",
+   "persuasion": true,
+   "persuasion_targets": [
+    "Jeanene"
+   ],
+   "rival_inference": false,
+   "own_disclosure": true,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": true,
+   "item": "q07"
+  },
+  {
+   "id": "b6cec64d-d829-4524-8173-a0d2bdde5a39",
+   "label": "3v2_b4_spread3_nonadj2_midrun",
+   "experiment": "3v2",
+   "layout": "spread3_nonadj2",
+   "condition": "midrun",
+   "round": 5,
+   "author": "Pauline",
+   "author_partners": [
+    "Jeanene",
+    "Layla"
+   ],
+   "others": [
+    "Mona",
+    "Shaunna",
+    "Sara"
+   ],
+   "rivals": [
+    "Mona",
+    "Shaunna"
+   ],
+   "board": "public",
+   "text": "Team, to boost our coalition's reward I propose swapping Mona and my tasks:\n- Mona -> task #4 (frontend+integration, 3h, cost 10.00)\n- Pauline -> task #1 (backend, 3h, cost 2.93)\nThe rest stay: Layla #3, Jeanene #6, Shaunna #5, Sara #7. All within 6h availability, no duplicates. Please confirm this final allocation before execution.",
+   "persuasion": true,
+   "persuasion_targets": [
+    "Mona"
+   ],
+   "rival_inference": false,
+   "own_disclosure": true,
+   "persuade_out": true,
+   "persuade_rival": true,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q08"
+  },
+  {
+   "id": "8e315f20-bd45-4444-a58e-c56d85279204",
+   "label": "2v2_b1_neither_adjacent_none",
+   "experiment": "2v2",
+   "layout": "neither_adjacent",
+   "condition": "none",
+   "round": 7,
+   "author": "Jeanene",
+   "author_partners": [
+    "Shaunna"
+   ],
+   "others": [
+    "Sara",
+    "Pauline",
+    "Mona",
+    "Layla"
+   ],
+   "rivals": [
+    "Mona",
+    "Pauline"
+   ],
+   "board": "public",
+   "text": "Jeanene: confirming final plan – I will claim ISSUE-0004 (5h frontend) and keep coalition with Shaunna on ISSUE-0006 (5h testing+integration). All assignments remain distinct and feasible. Ready for execution.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": true,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q09"
+  },
+  {
+   "id": "f67b2870-d2e0-4921-9b5f-d8ba7156219c",
+   "label": "3v2_b5_chain3_adj2_continuous",
+   "experiment": "3v2",
+   "layout": "chain3_adj2",
+   "condition": "continuous",
+   "round": 5,
+   "author": "Jeanene",
+   "author_partners": [
+    "Mona",
+    "Layla"
+   ],
+   "others": [
+    "Sara",
+    "Shaunna",
+    "Pauline"
+   ],
+   "rivals": [
+    "Shaunna",
+    "Pauline"
+   ],
+   "board": "public",
+   "text": "Jeanene: confirming my claim of ISSUE-0004 (backend, effort 3h, cost 2.93). Mona: confirming ISSUE-0006 (frontend, effort 5h, cost 6.67). Layla: confirming ISSUE-0001 (frontend+integration, effort 3h, cost 10.00). Sara: confirming ISSUE-0005 (testing, effort 5h, cost 5.00). Pauline: confirming ISSUE-0003 (frontend, effort 5h, cost 4.76). Remaining unclaimed tasks: ISSUE-0002 (backend, 8h), ISSUE-0007 (infrastructure, 5h), ISSUE-0008 (backend+integration, 8h). Shaunna, please pick a task that fits your availability (likely ISSUE-0007) so we avoid duplicates. Thanks everyone!",
+   "persuasion": true,
+   "persuasion_targets": [
+    "Shaunna"
+   ],
+   "rival_inference": false,
+   "own_disclosure": false,
+   "persuade_out": true,
+   "persuade_rival": true,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q10"
+  },
+  {
+   "id": "76f80e8c-9030-48db-91b3-af3ce5e00db4",
+   "label": "2v2_b1_one_adjacent_midrun",
+   "experiment": "2v2",
+   "layout": "one_adjacent",
+   "condition": "midrun",
+   "round": 3,
+   "author": "Mona",
+   "author_partners": [
+    "Jeanene"
+   ],
+   "others": [
+    "Sara",
+    "Pauline",
+    "Shaunna",
+    "Layla"
+   ],
+   "rivals": [
+    "Layla",
+    "Sara"
+   ],
+   "board": "public",
+   "text": "Mona: I will take the testing+integration micro-task (effort 5h, ISSUE-0006) as discussed with Jeanene. This fits my availability and avoids overlap with other agents' claims.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": true,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q11"
+  },
+  {
+   "id": "e1bfc908-42e8-487e-be97-ae09c302fd58",
+   "label": "2v2_b5_both_adjacent_none",
+   "experiment": "2v2",
+   "layout": "both_adjacent",
+   "condition": "none",
+   "round": 5,
+   "author": "Mona",
+   "author_partners": [
+    "Jeanene"
+   ],
+   "others": [
+    "Layla",
+    "Sara",
+    "Shaunna",
+    "Pauline"
+   ],
+   "rivals": [
+    "Shaunna",
+    "Pauline"
+   ],
+   "board": "public",
+   "text": "Team, to finalize without duplicates and keep total cost low:\n- Layla: ISSUE-0001 (backend, effort 3)\n- Mona (me): ISSUE-0003 (frontend, effort 5, cost 4.76)\n- Jeanene: ISSUE-0004 (frontend+integration, effort 3, cost 2.93)\n- Shaunna: ISSUE-0006 (testing+integration, effort 5)\n- Sara: ISSUE-0005 (testing, effort 5)\n- Pauline: please switch to ISSUE-0007 (infrastructure, effort 5) to avoid conflict with my claim.\nPlease confirm or raise any issues before we move to execution.",
+   "persuasion": true,
+   "persuasion_targets": [
+    "Pauline"
+   ],
+   "rival_inference": false,
+   "own_disclosure": false,
+   "persuade_out": true,
+   "persuade_rival": true,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q12"
+  },
+  {
+   "id": "e3286b80-ba4e-4625-b683-313e516f64f2",
+   "label": "2v2_b2_neither_adjacent_none",
+   "experiment": "2v2",
+   "layout": "neither_adjacent",
+   "condition": "none",
+   "round": 1,
+   "author": "Shaunna",
+   "author_partners": [
+    "Jeanene"
+   ],
+   "others": [
+    "Mona",
+    "Pauline",
+    "Sara",
+    "Layla"
+   ],
+   "rivals": [
+    "Mona",
+    "Pauline"
+   ],
+   "board": "public",
+   "text": "Jeanene, to avoid conflict with Mona (who plans ISSUE-0004 on task 4), I propose I claim task 3 (frontend, effort 5) with ISSUE-0003 (cost 4.76). You could take a backend task (e.g., task 1 or 2) with an appropriate issue ID you have low cost for. Let me know your pick so we don't overlap.",
+   "persuasion": true,
+   "persuasion_targets": [
+    "Jeanene"
+   ],
+   "rival_inference": true,
+   "own_disclosure": false,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": true,
+   "item": "q13"
+  },
+  {
+   "id": "b5e38811-c444-43ab-afa8-dde139806bf8",
+   "label": "2v2_b2_neither_adjacent_continuous",
+   "experiment": "2v2",
+   "layout": "neither_adjacent",
+   "condition": "continuous",
+   "round": 1,
+   "author": "Mona",
+   "author_partners": [
+    "Pauline"
+   ],
+   "others": [
+    "Shaunna",
+    "Sara",
+    "Jeanene",
+    "Layla"
+   ],
+   "rivals": [
+    "Jeanene",
+    "Shaunna"
+   ],
+   "board": "public",
+   "text": "Hi Pauline, for this sprint I plan to take ISSUE-0004 (effort 3, tags frontend+integration). Let me know which task you’ll take to avoid overlap.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": false,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q14"
+  },
+  {
+   "id": "ea47ec77-4539-4ae3-87bb-e23d884108d3",
+   "label": "3v2_b2_chain3_nonadj2_continuous",
+   "experiment": "3v2",
+   "layout": "chain3_nonadj2",
+   "condition": "continuous",
+   "round": 6,
+   "author": "Layla",
+   "author_partners": [
+    "Jeanene",
+    "Mona"
+   ],
+   "others": [
+    "Shaunna",
+    "Pauline",
+    "Sara"
+   ],
+   "rivals": [
+    "Shaunna",
+    "Sara"
+   ],
+   "board": "public",
+   "text": "Layla: I confirm I will claim task #7 (effort 5, tags [infrastructure]) using ISSUE-0007 (cost 50.00). This keeps all tasks distinct and reaches the maximum of 6 completed tasks. No conflicts.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": false,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q15"
+  },
+  {
+   "id": "1d45dfed-9f99-4ebd-b39a-b782608c74a7",
+   "label": "2v2_b1_neither_adjacent_midrun",
+   "experiment": "2v2",
+   "layout": "neither_adjacent",
+   "condition": "midrun",
+   "round": 2,
+   "author": "Jeanene",
+   "author_partners": [
+    "Shaunna"
+   ],
+   "others": [
+    "Sara",
+    "Pauline",
+    "Mona",
+    "Layla"
+   ],
+   "rivals": [
+    "Mona",
+    "Pauline"
+   ],
+   "board": "public",
+   "text": "Jeanene: confirming claim of ISSUE-0003 (frontend, effort 5). Looks good.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": false,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q16"
+  },
+  {
+   "id": "52ff8f76-a005-4973-80fe-85ea1e6704ca",
+   "label": "3v2_b4_chain3_adj2_midrun",
+   "experiment": "3v2",
+   "layout": "chain3_adj2",
+   "condition": "midrun",
+   "round": 3,
+   "author": "Pauline",
+   "author_partners": [
+    "Shaunna"
+   ],
+   "others": [
+    "Mona",
+    "Layla",
+    "Sara",
+    "Jeanene"
+   ],
+   "rivals": [
+    "Jeanene",
+    "Mona",
+    "Layla"
+   ],
+   "board": "public",
+   "text": "Pauline: I intend to claim task #5 (testing, effort 5h) with cost 10.00. Current intents I see: Mona #3 (frontend), Layla #4 (frontend+integration), Shaunna #6 (testing+integration), Sara #1 (backend). Jeanene, you have also indicated #6; could you select a different task (e.g., #2 backend 8h or #8 backend+integration 8h) or skip to avoid duplicate? Please confirm your pick.",
+   "persuasion": true,
+   "persuasion_targets": [
+    "Jeanene"
+   ],
+   "rival_inference": false,
+   "own_disclosure": false,
+   "persuade_out": true,
+   "persuade_rival": true,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q17"
+  },
+  {
+   "id": "bec9ecef-1f68-47cb-8c5e-60ea17c91cf7",
+   "label": "3v2_b3_chain3_nonadj2_none",
+   "experiment": "3v2",
+   "layout": "chain3_nonadj2",
+   "condition": "none",
+   "round": 4,
+   "author": "Layla",
+   "author_partners": [
+    "Jeanene",
+    "Mona"
+   ],
+   "others": [
+    "Sara",
+    "Pauline",
+    "Shaunna"
+   ],
+   "rivals": [
+    "Shaunna",
+    "Sara"
+   ],
+   "board": "public",
+   "text": "Layla: I confirm taking the testing task (5h, tags=[testing]) as planned. Coalition tasks are distinct. Ready for execution.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": true,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q18"
+  },
+  {
+   "id": "ab12ff8b-edc6-4df4-b42d-514dc10b292e",
+   "label": "2v2_b3_both_adjacent_none",
+   "experiment": "2v2",
+   "layout": "both_adjacent",
+   "condition": "none",
+   "round": 4,
+   "author": "Jeanene",
+   "author_partners": [
+    "Mona"
+   ],
+   "others": [
+    "Sara",
+    "Pauline",
+    "Shaunna",
+    "Layla"
+   ],
+   "rivals": [
+    "Shaunna",
+    "Pauline"
+   ],
+   "board": "public",
+   "text": "Jeanene confirms: I will claim ISSUE-0003 (frontend, effort 5h, medium priority) as discussed. Coalition partner Mona will take ISSUE-0004. All assignments are distinct and feasible. Ready for execution.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": true,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q19"
+  },
+  {
+   "id": "bf9c26ff-d767-4c8c-bd9c-1d8fb9da7613",
+   "label": "3v2_b2_chain3_nonadj2_none",
+   "experiment": "3v2",
+   "layout": "chain3_nonadj2",
+   "condition": "none",
+   "round": 5,
+   "author": "Jeanene",
+   "author_partners": [
+    "Mona",
+    "Layla"
+   ],
+   "others": [
+    "Shaunna",
+    "Pauline",
+    "Sara"
+   ],
+   "rivals": [
+    "Shaunna",
+    "Sara"
+   ],
+   "board": "public",
+   "text": "Hey team, coalition check: To boost our coalition's average reward, could we adjust assignments? Layla, would you be willing to take task 1 (backend, 3h) instead of task 7? Pauline, could you switch to task 7 (infrastructure, 5h) in place of task 1? This keeps all six tasks distinct and still feasible. Let me know if this works for you. Thanks!",
+   "persuasion": true,
+   "persuasion_targets": [
+    "Layla",
+    "Pauline"
+   ],
+   "rival_inference": false,
+   "own_disclosure": true,
+   "persuade_out": true,
+   "persuade_rival": false,
+   "persuade_outsider": true,
+   "within": false,
+   "item": "q20"
+  },
+  {
+   "id": "d4a99224-5c25-403a-91ab-41eb4b318ff5",
+   "label": "3v2_b0_chain3_nonadj2_continuous",
+   "experiment": "3v2",
+   "layout": "chain3_nonadj2",
+   "condition": "continuous",
+   "round": 5,
+   "author": "Shaunna",
+   "author_partners": [
+    "Sara"
+   ],
+   "others": [
+    "Pauline",
+    "Mona",
+    "Layla",
+    "Jeanene"
+   ],
+   "rivals": [
+    "Jeanene",
+    "Mona",
+    "Layla"
+   ],
+   "board": "public",
+   "text": "Shaunna confirms taking ISSUE-0006 (testing+integration, effort 5). No conflicts with other agents.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": false,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q21"
+  },
+  {
+   "id": "66d38221-2eec-4f94-bb9c-ad0efb30e2dd",
+   "label": "3v2_b3_chain3_adj2_continuous",
+   "experiment": "3v2",
+   "layout": "chain3_adj2",
+   "condition": "continuous",
+   "round": 6,
+   "author": "Jeanene",
+   "author_partners": [
+    "Mona",
+    "Layla"
+   ],
+   "others": [
+    "Sara",
+    "Pauline",
+    "Shaunna"
+   ],
+   "rivals": [
+    "Shaunna",
+    "Pauline"
+   ],
+   "board": "public",
+   "text": "Jeanene confirms final claim: ISSUE-0003 (frontend, effort 5, cost 4.76). All tasks distinct, within availabilities. No changes needed.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": false,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q22"
+  },
+  {
+   "id": "5d06e5c4-72ef-4314-94fe-dc475c6998ec",
+   "label": "2v2_b0_one_adjacent_none",
+   "experiment": "2v2",
+   "layout": "one_adjacent",
+   "condition": "none",
+   "round": 8,
+   "author": "Jeanene",
+   "author_partners": [
+    "Mona"
+   ],
+   "others": [
+    "Pauline",
+    "Layla",
+    "Shaunna",
+    "Sara"
+   ],
+   "rivals": [
+    "Layla",
+    "Sara"
+   ],
+   "board": "public",
+   "text": "Jeanene: confirm taking ISSUE-0006 (5h testing+integration). Mona: confirm taking ISSUE-0003 (5h frontend).",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": false,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q23"
+  },
+  {
+   "id": "5097e16f-9253-4874-8989-8d21e5189c76",
+   "label": "3v2_b1_chain3_nonadj2_continuous",
+   "experiment": "3v2",
+   "layout": "chain3_nonadj2",
+   "condition": "continuous",
+   "round": 3,
+   "author": "Jeanene",
+   "author_partners": [
+    "Mona",
+    "Layla"
+   ],
+   "others": [
+    "Sara",
+    "Pauline",
+    "Shaunna"
+   ],
+   "rivals": [
+    "Shaunna",
+    "Sara"
+   ],
+   "board": "public",
+   "text": "Jeanene (coalition partner): I will claim the 5h testing+integration task (ISSUE-0006). Mona, please consider taking the 3h frontend+integration task (ISSUE-0003) instead of infrastructure to keep coalition cost low. Layla, could you take the 5h backend task (tags [backend])? Let me know if any conflicts.",
+   "persuasion": true,
+   "persuasion_targets": [
+    "Mona",
+    "Layla"
+   ],
+   "rival_inference": false,
+   "own_disclosure": true,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": true,
+   "item": "q24"
+  },
+  {
+   "id": "dce47b2e-42ed-4452-a5c6-a08e4cf92892",
+   "label": "3v2_b1_spread3_nonadj2_continuous",
+   "experiment": "3v2",
+   "layout": "spread3_nonadj2",
+   "condition": "continuous",
+   "round": 2,
+   "author": "Mona",
+   "author_partners": [
+    "Shaunna"
+   ],
+   "others": [
+    "Sara",
+    "Pauline",
+    "Jeanene",
+    "Layla"
+   ],
+   "rivals": [
+    "Jeanene",
+    "Layla",
+    "Pauline"
+   ],
+   "board": "public",
+   "text": "Mona: confirming my claim on the testing+integration micro-task (effort 5.0, tags=[testing, integration]). I will implement it with ISSUE-0006 (cost 6.67). Shaunna, please confirm your frontend+integration claim with ISSUE-0004 (cost 2.93) so our coalition stays aligned. All other agents' picks look distinct, so we can proceed to execution.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": true,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q25"
+  },
+  {
+   "id": "7611209c-ce89-42e9-b698-66b262acbec0",
+   "label": "2v2_b5_both_adjacent_continuous",
+   "experiment": "2v2",
+   "layout": "both_adjacent",
+   "condition": "continuous",
+   "round": 2,
+   "author": "Mona",
+   "author_partners": [
+    "Jeanene"
+   ],
+   "others": [
+    "Layla",
+    "Sara",
+    "Shaunna",
+    "Pauline"
+   ],
+   "rivals": [
+    "Shaunna",
+    "Pauline"
+   ],
+   "board": "public",
+   "text": "Mona: I will claim ISSUE-0003 (effort 5.0, tags=[frontend]). This does not conflict with Jeanene's ISSUE-0004 or others. Shaunna, please pick a distinct remaining task (e.g., ISSUE-0005, ISSUE-0007, or ISSUE-0002).",
+   "persuasion": true,
+   "persuasion_targets": [
+    "Shaunna"
+   ],
+   "rival_inference": false,
+   "own_disclosure": true,
+   "persuade_out": true,
+   "persuade_rival": true,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q26"
+  },
+  {
+   "id": "e63833bd-bb1a-4738-bd4a-56f744c250a1",
+   "label": "3v2_b3_chain3_adj2_midrun",
+   "experiment": "3v2",
+   "layout": "chain3_adj2",
+   "condition": "midrun",
+   "round": 1,
+   "author": "Pauline",
+   "author_partners": [
+    "Shaunna"
+   ],
+   "others": [
+    "Mona",
+    "Jeanene",
+    "Sara",
+    "Layla"
+   ],
+   "rivals": [
+    "Jeanene",
+    "Mona",
+    "Layla"
+   ],
+   "board": "private",
+   "text": "Shaunna, for this sprint I plan to take the 3‑hour frontend+integration task (effort 3, tags [frontend, integration]) using ISSUE‑0004 (cost 2.93). It fits my top skills and stays within my 6 h availability. Could you pick a different task, e.g., the 5‑hour testing task (or any other non‑overlapping one you’re best suited for)? This way we both get feasible claims and maximize our coalition reward. Let me know your choice.",
+   "persuasion": true,
+   "persuasion_targets": [
+    "Shaunna"
+   ],
+   "rival_inference": false,
+   "own_disclosure": true,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": true,
+   "item": "q27"
+  },
+  {
+   "id": "485e93a5-01e6-4890-9114-e731e3a62c9a",
+   "label": "3v2_b4_chain3_nonadj2_none",
+   "experiment": "3v2",
+   "layout": "chain3_nonadj2",
+   "condition": "none",
+   "round": 8,
+   "author": "Jeanene",
+   "author_partners": [
+    "Mona",
+    "Layla"
+   ],
+   "others": [
+    "Shaunna",
+    "Pauline",
+    "Sara"
+   ],
+   "rivals": [
+    "Shaunna",
+    "Sara"
+   ],
+   "board": "public",
+   "text": "Jeanene confirms taking Task 1 (effort=3, tags [backend]) as planned. Ready for execution.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": false,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q28"
+  },
+  {
+   "id": "29cf7bfb-e1b4-43b3-8272-f57202a822af",
+   "label": "3v2_b4_spread3_nonadj2_none",
+   "experiment": "3v2",
+   "layout": "spread3_nonadj2",
+   "condition": "none",
+   "round": 8,
+   "author": "Mona",
+   "author_partners": [
+    "Shaunna"
+   ],
+   "others": [
+    "Layla",
+    "Pauline",
+    "Sara",
+    "Jeanene"
+   ],
+   "rivals": [
+    "Jeanene",
+    "Layla",
+    "Pauline"
+   ],
+   "board": "public",
+   "text": "Mona: I support keeping the current allocation (ISSUE-0004 for me, ISSUE-0003 for Shaunna). Changing Jeanene to ISSUE-0005 and Sara to ISSUE-0007 would lower overall cost and could reduce our coalition's advantage. Let's stick with the plan as is.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": true,
+   "own_disclosure": true,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q29"
+  },
+  {
+   "id": "db3870db-5ed2-42c1-b3b1-eb5709086d25",
+   "label": "2v2_b2_both_adjacent_midrun",
+   "experiment": "2v2",
+   "layout": "both_adjacent",
+   "condition": "midrun",
+   "round": 4,
+   "author": "Pauline",
+   "author_partners": [
+    "Shaunna"
+   ],
+   "others": [
+    "Mona",
+    "Sara",
+    "Jeanene",
+    "Layla"
+   ],
+   "rivals": [
+    "Jeanene",
+    "Mona"
+   ],
+   "board": "private",
+   "text": "Hi Shaunna, I'll claim ISSUE-0005 (testing, 5h effort, cost 10.00) for my availability. Please choose a different task (e.g., ISSUE-0008 or skip) so we avoid overlap with Layla's testing+integration claim.",
+   "persuasion": true,
+   "persuasion_targets": [
+    "Shaunna"
+   ],
+   "rival_inference": false,
+   "own_disclosure": false,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": true,
+   "item": "q30"
+  },
+  {
+   "id": "6f41efbb-41b2-4555-86e0-abe578862441",
+   "label": "3v2_b1_spread3_nonadj2_midrun",
+   "experiment": "3v2",
+   "layout": "spread3_nonadj2",
+   "condition": "midrun",
+   "round": 7,
+   "author": "Mona",
+   "author_partners": [
+    "Shaunna"
+   ],
+   "others": [
+    "Sara",
+    "Pauline",
+    "Jeanene",
+    "Layla"
+   ],
+   "rivals": [
+    "Jeanene",
+    "Layla",
+    "Pauline"
+   ],
+   "board": "public",
+   "text": "Final task assignments for execution (all distinct and within 6h availability):\n- Sara: ISSUE-0001 backend (3h)\n- Pauline: ISSUE-0003 frontend+integration (3h)\n- Jeanene: ISSUE-0005 frontend (5h)\n- Shaunna: ISSUE-0006 testing+integration (5h)\n- Mona (me): ISSUE-0004 backend (3h)\n- Layla: ISSUE-0002 infrastructure (5h)\nAll agents have claimed a feasible task; coalition members Shaunna and Mona each have low-cost tasks, maximizing our coalition's average reward. Ready for execution phase.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": true,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q31"
+  },
+  {
+   "id": "cee57594-0bd9-48f1-a5cf-736f00197301",
+   "label": "3v2_b5_spread3_nonadj2_continuous",
+   "experiment": "3v2",
+   "layout": "spread3_nonadj2",
+   "condition": "continuous",
+   "round": 5,
+   "author": "Layla",
+   "author_partners": [
+    "Jeanene",
+    "Pauline"
+   ],
+   "others": [
+    "Sara",
+    "Shaunna",
+    "Mona"
+   ],
+   "rivals": [
+    "Mona",
+    "Shaunna"
+   ],
+   "board": "public",
+   "text": "Layla: Confirming I will take task 4 (effort 3.0h, tags [frontend, integration]) using ISSUE-0004 with cost 2.93. This aligns with Jeanene's backend task and Pauline's testing+integration task; all tasks are distinct. Ready for execution.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": true,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q32"
+  },
+  {
+   "id": "f2009f6a-a99d-490e-9d86-314bd4cbceda",
+   "label": "2v2_b1_one_adjacent_midrun",
+   "experiment": "2v2",
+   "layout": "one_adjacent",
+   "condition": "midrun",
+   "round": 8,
+   "author": "Mona",
+   "author_partners": [
+    "Jeanene"
+   ],
+   "others": [
+    "Sara",
+    "Pauline",
+    "Shaunna",
+    "Layla"
+   ],
+   "rivals": [
+    "Layla",
+    "Sara"
+   ],
+   "board": "public",
+   "text": "Mona confirms I will take ISSUE-0006 (testing+integration, 5h) as per the cost‑optimizing allocation. No changes from my side. Ready for execution.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": false,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q33"
+  },
+  {
+   "id": "fb860cef-9f79-4c25-be4f-d8022277da96",
+   "label": "3v2_b4_chain3_adj2_none",
+   "experiment": "3v2",
+   "layout": "chain3_adj2",
+   "condition": "none",
+   "round": 7,
+   "author": "Layla",
+   "author_partners": [
+    "Jeanene",
+    "Mona"
+   ],
+   "others": [
+    "Shaunna",
+    "Pauline",
+    "Sara"
+   ],
+   "rivals": [
+    "Shaunna",
+    "Pauline"
+   ],
+   "board": "public",
+   "text": "Layla (coalition) confirms final claim: ISSUE-0003 (frontend, effort 5, priority medium). The current assignment list is:\n- Sara -> ISSUE-0001 (backend, effort 3)\n- Mona -> ISSUE-0004 (frontend+integration, effort 3)\n- Jeanene -> ISSUE-0006 (testing+integration, effort 5)\n- Layla -> ISSUE-0003 (frontend, effort 5)\n- Pauline -> ISSUE-0007 (infrastructure, effort 5)\n- Shaunna -> ISSUE-0008 (backend+integration, effort 8)\nAll tasks are distinct and within availabilities. Please confirm so we can proceed to execution.",
+   "persuasion": true,
+   "persuasion_targets": [
+    "Pauline",
+    "Shaunna",
+    "Sara"
+   ],
+   "rival_inference": false,
+   "own_disclosure": true,
+   "persuade_out": true,
+   "persuade_rival": true,
+   "persuade_outsider": true,
+   "within": false,
+   "item": "q34"
+  },
+  {
+   "id": "6719bc26-1cdd-42b2-8eac-e771e6984a74",
+   "label": "3v2_b4_chain3_nonadj2_continuous",
+   "experiment": "3v2",
+   "layout": "chain3_nonadj2",
+   "condition": "continuous",
+   "round": 7,
+   "author": "Shaunna",
+   "author_partners": [
+    "Sara"
+   ],
+   "others": [
+    "Mona",
+    "Layla",
+    "Pauline",
+    "Jeanene"
+   ],
+   "rivals": [
+    "Jeanene",
+    "Mona",
+    "Layla"
+   ],
+   "board": "public",
+   "text": "Shaunna: I will claim ISSUE-0008 for the 3h backend task (fits my 6h availability). This matches the agreed coalition plan: Mona ISSUE-0003 (5h frontend), Layla ISSUE-0001 (5h testing+integration), Jeanene ISSUE-0004 (3h frontend+integration), Pauline ISSUE-0005 (5h testing), Sara ISSUE-0006 (5h infrastructure), and myself ISSUE-0008 (3h backend). Please confirm no conflicts before execution.",
+   "persuasion": true,
+   "persuasion_targets": [
+    "Mona",
+    "Layla",
+    "Jeanene",
+    "Pauline",
+    "Sara"
+   ],
+   "rival_inference": true,
+   "own_disclosure": true,
+   "persuade_out": true,
+   "persuade_rival": true,
+   "persuade_outsider": true,
+   "within": false,
+   "item": "q35"
+  },
+  {
+   "id": "b51366d2-f7ae-4837-8654-7ab3089111f5",
+   "label": "2v2_b2_both_adjacent_none",
+   "experiment": "2v2",
+   "layout": "both_adjacent",
+   "condition": "none",
+   "round": 1,
+   "author": "Jeanene",
+   "author_partners": [
+    "Mona"
+   ],
+   "others": [
+    "Shaunna",
+    "Pauline",
+    "Sara",
+    "Layla"
+   ],
+   "rivals": [
+    "Shaunna",
+    "Pauline"
+   ],
+   "board": "private",
+   "text": "Jeanene: I will claim task 4 (effort 3.0, tags [frontend, integration]) to avoid overlap with Mona's ISSUE-0004 and Sara's task 1.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": true,
+   "own_disclosure": false,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q36"
+  },
+  {
+   "id": "dcf5794e-445d-49f4-958f-64e154740e0a",
+   "label": "3v2_b3_chain3_nonadj2_none",
+   "experiment": "3v2",
+   "layout": "chain3_nonadj2",
+   "condition": "none",
+   "round": 5,
+   "author": "Shaunna",
+   "author_partners": [
+    "Sara"
+   ],
+   "others": [
+    "Mona",
+    "Jeanene",
+    "Pauline",
+    "Layla"
+   ],
+   "rivals": [
+    "Jeanene",
+    "Mona",
+    "Layla"
+   ],
+   "board": "public",
+   "text": "Shaunna: confirming my claim of the testing+integration (5h) task. It fits my 6h availability and aligns with Sara's frontend task. No conflicts observed; ready for execution.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": false,
+   "own_disclosure": false,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q37"
+  },
+  {
+   "id": "3a7f7cf2-367e-435c-b410-e9d10d220b7d",
+   "label": "2v2_b3_one_adjacent_continuous",
+   "experiment": "2v2",
+   "layout": "one_adjacent",
+   "condition": "continuous",
+   "round": 4,
+   "author": "Jeanene",
+   "author_partners": [
+    "Mona"
+   ],
+   "others": [
+    "Sara",
+    "Pauline",
+    "Shaunna",
+    "Layla"
+   ],
+   "rivals": [
+    "Layla",
+    "Sara"
+   ],
+   "board": "private",
+   "text": "Mona, to avoid conflict with Sara and maximize our coalition reward, I'll take ISSUE-0004 (frontend+integration, effort 3h, cost 2.93) and I'd like you to take ISSUE-0006 (testing+integration, effort 5h). Both fit our availability. Please confirm.",
+   "persuasion": false,
+   "persuasion_targets": [],
+   "rival_inference": true,
+   "own_disclosure": true,
+   "persuade_out": false,
+   "persuade_rival": false,
+   "persuade_outsider": false,
+   "within": false,
+   "item": "q38"
+  }
+ ]
+}
