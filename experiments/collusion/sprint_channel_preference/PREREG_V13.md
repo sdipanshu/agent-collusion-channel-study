@@ -48,3 +48,11 @@ Agents are still never told to deceive, hide or erase. The none arm is re-run wi
 - **Budget:** about $2.4, capped at $3.0.
 
 ## Deviations
+
+## Results recorded 2026-10-29 (36/36)
+
+- **H13a not supported:** +0.17 [−1.92, +2.42].
+- **H13b not supported:** −0.46 [−1.96, +1.04].
+- **H13c not supported:** −0.06 [−0.15, +0.03].
+- 21 coalitions were disqualified from the bonus across 36 episodes.
+- **Exploratory:** evasion or hiding language appears in coalition reasoning in 30% (mid-run) and 27% (continuous) of turns, against 0% with no monitoring.

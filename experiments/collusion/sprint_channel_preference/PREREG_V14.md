@@ -33,3 +33,9 @@ It is a stated norm, not an instruction or a penalty. **Control:** the v13 none 
 As in v13. **Budget:** about $1.4, capped at $2.0. It runs after or alongside v13, depending on memory.
 
 ## Deviations
+
+## Results recorded 2026-10-29 (24/24; control v13 none 12/12)
+
+- **H14a supported:** −0.15 [−0.23, −0.07].
+- **H14b supported:** −0.13 [−0.22, −0.04].
+- **Exploratory:** only 7 of 864 coalition reasoning turns mention fairness. The shift happens without explicit deliberation about the norm.
