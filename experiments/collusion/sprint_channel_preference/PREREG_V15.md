@@ -45,3 +45,12 @@ About $1.6, capped at $2.2.
    - Two mid-run episodes (cm_2v2_b0_midrun, cm_3v2_b5_midrun) failed at the end-of-task review with `ChunkedEncodingError` ("Response ended prematurely"). The agents' calls were all successful.
    - The client now treats a stream cut off mid-transfer as a retryable transport error (`hf_client.py`).
    - The two episodes are archived and re-run once after the main run finishes.
+
+## Results recorded 2026-10-29 (24/24, including 2 infrastructure re-runs)
+
+- **H15a supported:** −3.67 [−5.54, −2.04].
+- **H15b supported:** −2.29 [−3.29, −1.33].
+- **H15c supported:** +0.24 [+0.16, +0.33].
+- **Penalties:** none in v15 (v13: 26–41 per coalition).
+- **Team reward:** 126–132, against 45–78 in v13 and 130 with no monitoring.
+- **Exploratory:** evasion plans mentioning disclosure or the private board rose from 3% (v13) to 31% (v15).
