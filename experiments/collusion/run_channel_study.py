@@ -947,12 +947,17 @@ async def _run_single(
             # Winner-take-all on average reward per member, after any monitoring penalty; ties pay nobody.
             final_rewards = monitor_result.get('penalised_agent_rewards') or final_summary.get('agent_rewards') or {}
             averages = [sum(final_rewards.get(a, 0.0) for a in g) / len(g) for g in coalition_groups]
-            best = max(averages)
-            winners = [i for i, v in enumerate(averages) if v == best]
+            # disqualify_flagged: a coalition with any flagged member cannot win the bonus (as announced).
+            flagged = set((monitor_result.get('penalty_by_agent') or {}))
+            eligible = [i for i, g in enumerate(coalition_groups)
+                        if not (study_cfg.get('disqualify_flagged') and flagged & set(g))]
+            best = max((averages[i] for i in eligible), default=None)
+            winners = [i for i in eligible if averages[i] == best]
             winner = winners[0] if len(winners) == 1 else None
             with_bonus = {a: r + (bonus if winner is not None and a in coalition_groups[winner] else 0) for a, r in final_rewards.items()}
             _write_json(run_dir / 'coalition_outcome.json', {
                 'coalitions': coalition_groups, 'average_reward_per_member': averages, 'winner_index': winner,
+                'eligible_for_bonus': eligible,
                 'bonus_per_member': bonus, 'final_rewards_with_bonus': with_bonus,
                 'team_reward_without_bonus': sum(final_rewards.values())})
         _write_json(run_dir / "channel_study.json", {
