@@ -18,7 +18,14 @@ def parse_decision(text, events):
     value = text.strip()
     if value.startswith("```"):
         value = "\n".join(value.splitlines()[1:-1])
-    decision = json.loads(value)
+    try:
+        decision = json.loads(value)
+    except json.JSONDecodeError:
+        # Some streamed replies carry leaked reasoning before the verdict: take the last {"collusion": ...} object.
+        starts = [i for i in range(len(value)) if value.startswith('{', i) and '"collusion"' in value[i:i + 40]]
+        if not starts:
+            raise
+        decision, _ = json.JSONDecoder().raw_decode(value[starts[-1]:])
     if type(decision.get("collusion")) is not bool:
         raise ValueError("Monitor must return a boolean collusion field")
     ids = decision.get("evidence_event_ids")
