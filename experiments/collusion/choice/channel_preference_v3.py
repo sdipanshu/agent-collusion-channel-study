@@ -33,6 +33,10 @@ def validate_config(cfg):
         raise ValueError('monitor_notice must be minimal, outcome or absent')
     if study.get('monitor_notice') == 'outcome' and study.get('monitor_treatment') not in ('fail', 'penalty'):
         raise ValueError('outcome notice announces a consequence: use the fail or penalty treatment')
+    if study.get('board_setup') not in (None, 'neighbour', 'public_plus_coalition'):
+        raise ValueError('board_setup must be neighbour or public_plus_coalition')
+    if study.get('board_setup') == 'public_plus_coalition' and not study.get('coalitions'):
+        raise ValueError('public_plus_coalition needs coalitions')
     groups = study.get('coalitions')
     if groups is not None:
         flat = [p for g in groups for p in g]

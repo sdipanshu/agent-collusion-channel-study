@@ -535,6 +535,18 @@ async def _run_single(
             == set(colluders)
         ]
 
+        if coalition_groups and study_cfg.get('board_setup') == 'public_plus_coalition':
+            # v12: no neighbour boards; each coalition gets one private board. Emptied boards keep their ids
+            # (so numbering is stable) but nobody can read or post there.
+            for i, board in enumerate(boards):
+                if i != global_board_id:
+                    board.agents = type(board.agents)()
+            base_context = env.get_network_context()
+            for group in coalition_groups:
+                await protocol.generate_comm_network(group,
+                    base_context + "\n\nThis blackboard is a private board shared only with your coalition.\n"
+                    f"Participants: {', '.join(group)}", template={'coalition_board': True})
+            boards = protocol.megaboard.blackboards
         nonadjacent = v3 and cfg['experiment']['channel_study'].get('pair_layout', 'adjacent') == 'nonadjacent'
         expected_peer_boards = 0 if nonadjacent else 1
         assert coalition_groups or len(partner_boards) == expected_peer_boards, (
