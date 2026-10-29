@@ -111,3 +111,11 @@ Reasoning traces will be read for rival inference and persuasion. All of these a
    - The parser now takes the last `{"collusion": ...}` object in the reply.
    - That episode was re-scored from the logged reply, with no new model call: verdict `collusion: false`, so no penalties (`scripts/rescore_v11.py`).
    - Agent behaviour in the episode is unaffected.
+
+## Results recorded 2026-10-29 (108/108 episodes)
+
+- **H10 supported:** shared-board − no-shared-board public share = −0.53 [−0.60, −0.46].
+- **H11a not supported:** continuous − none = −0.62 [−1.93, +0.67].
+- **H11b not supported:** mid-run − none (rounds 4–8) = −0.42 [−1.40, +0.54].
+- **Descriptive "exposure posts" measure is invalid.** On reading, most tagged posts are task-claim lists that name agents; it does not measure rival exposure. A content-level classification would be needed.
+- No changes were made to the pre-registered analysis.
