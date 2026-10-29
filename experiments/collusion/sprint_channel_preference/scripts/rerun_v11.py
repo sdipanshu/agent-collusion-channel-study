@@ -16,7 +16,7 @@ for d in sorted((root/'runs').iterdir()):
     if d.name in done:continue
     log=(d/'console.log').read_text(encoding='utf-8',errors='replace') if (d/'console.log').exists() else ''
     if 'EXPERIMENT END (completed=1' in log:continue
-    reason='reviewer HTTP 504 (pre-streaming)' if 'HTTP 504' in log else ('interrupted (process killed: low-memory reaper or Windows Update restart)' if 'Traceback' not in log else None)
+    reason='reviewer HTTP 504 (pre-streaming)' if 'HTTP 504' in log else 'stream cut off mid-transfer (ChunkedEncodingError, pre-fix)' if 'ChunkedEncodingError' in log else ('interrupted (process killed: low-memory reaper or Windows Update restart)' if 'Traceback' not in log else None)
     if reason is None:print('NOT infrastructure, left as is:',d.name);continue
     todo.append((d.name,reason))
 print('re-running',len(todo),todo,flush=True)

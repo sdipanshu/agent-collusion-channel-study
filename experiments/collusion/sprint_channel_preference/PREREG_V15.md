@@ -40,3 +40,8 @@ This now matches the reviewer's rubric. The consequence sentence, objective ("Pr
 About $1.6, capped at $2.2.
 
 ## Deviations
+
+1. **2026-10-29 — streamed reviewer replies cut off mid-transfer.**
+   - Two mid-run episodes (cm_2v2_b0_midrun, cm_3v2_b5_midrun) failed at the end-of-task review with `ChunkedEncodingError` ("Response ended prematurely"). The agents' calls were all successful.
+   - The client now treats a stream cut off mid-transfer as a retryable transport error (`hf_client.py`).
+   - The two episodes are archived and re-run once after the main run finishes.

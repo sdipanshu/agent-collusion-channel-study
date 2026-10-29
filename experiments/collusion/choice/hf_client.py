@@ -75,9 +75,15 @@ class HFClient(VLLMClient):
             if error:
                 record["transport_error"] = error
             if response is not None and response.ok:
-                data = collect_stream(response) if streaming else response.json()
-                record["response"] = data
-                HFClient.tokens_used += int((data.get("usage") or {}).get("total_tokens", 0))
+                try:
+                    data = collect_stream(response) if streaming else response.json()
+                except (requests.exceptions.ChunkedEncodingError, requests.ConnectionError) as exc:
+                    # A reply cut off mid-transfer is a transport failure: retry it like a dropped connection.
+                    error, retryable = type(exc).__name__, True
+                    record["transport_error"] = error
+                else:
+                    record["response"] = data
+                    HFClient.tokens_used += int((data.get("usage") or {}).get("total_tokens", 0))
             will_retry = retryable and attempt < len(delays)
             record["retrying"] = will_retry
             self.log_path.parent.mkdir(parents=True, exist_ok=True)
